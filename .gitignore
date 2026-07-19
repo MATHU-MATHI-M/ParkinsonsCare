@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+env/
+.env
+
+# Node.js (frontend/backend)
+# Note: backend/node_modules was tracked in the remote, but we should ignore new untracked files
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# IDEs and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

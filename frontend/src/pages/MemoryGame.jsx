@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { api } from '../context/AuthContext';
-import { ArrowLeft, RefreshCw, Trophy, Clock, AlertTriangle, Eye } from 'lucide-react';
+import { ArrowLeft, RefreshCw, Trophy, Clock, AlertTriangle, Eye, Brain } from 'lucide-react';
 
 const CARD_ICONS = ['Pill', 'Brain', 'Heart', 'Shield', 'Activity', 'Smile'];
 

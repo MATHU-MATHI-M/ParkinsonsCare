@@ -14,11 +14,9 @@ const QuestionnaireSchema = new mongoose.Schema({
     sleep: { type: Number, required: true },
     mood: { type: Number, required: true },
     fatigue: { type: Number, required: true },
-    constipation: { type: Number, required: true },
-    stress: { type: Number, required: true },
-    depression: { type: Number, required: true },
     anxiety: { type: Number, required: true },
-    motivation: { type: Number, required: true }
+    constipation: { type: Number, required: true },
+    memory: { type: Number, required: true }
   },
   createdAt: {
     type: Date,

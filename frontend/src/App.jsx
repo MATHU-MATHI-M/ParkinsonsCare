@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useAuth } from './context/AuthContext';
 import Navbar from './components/Navbar';
+import ChatWidget from './components/ChatWidget';
 
 // Import Pages
 import Login from './pages/Login';
@@ -56,6 +57,7 @@ const App = () => {
     <BrowserRouter>
       <div className="min-h-screen bg-[#080c14] text-slate-100 flex flex-col">
         {token && <Navbar />}
+        {token && <ChatWidget />}
         
         <main className="flex-grow">
           <Routes>
