@@ -24,15 +24,15 @@ const SpiralDrawing = () => {
     
     // Draw center dot
     ctx.beginPath();
-    ctx.arc(CENTER, CENTER, 4, 0, 2 * Math.PI);
-    ctx.fillStyle = '#06b6d4';
+    ctx.arc(CENTER, CENTER, 5, 0, 2 * Math.PI);
+    ctx.fillStyle = '#0d9488';
     ctx.fill();
 
     // Renders ideal Archimedean spiral: r = b * theta
     // Let's use b = 4.5. Up to 3.5 revolutions
     ctx.beginPath();
-    ctx.strokeStyle = 'rgba(255, 255, 255, 0.12)';
-    ctx.lineWidth = 3;
+    ctx.strokeStyle = 'rgba(13, 148, 136, 0.3)';
+    ctx.lineWidth = 2.5;
     ctx.setLineDash([4, 4]); // Dashed guide
 
     const b = 4.5;
@@ -58,8 +58,8 @@ const SpiralDrawing = () => {
 
     const ctx = canvas.getContext('2d');
     ctx.lineCap = 'round';
-    ctx.strokeStyle = '#06b6d4';
-    ctx.lineWidth = 3;
+    ctx.strokeStyle = '#0284c7';
+    ctx.lineWidth = 3.5;
     contextRef.current = ctx;
 
     drawSpiralGuide(ctx);
@@ -178,7 +178,7 @@ const SpiralDrawing = () => {
 
   const handleAnalyze = async () => {
     if (points.length < 15) {
-      setError('Please draw a continuous tracing along the spiral guide first.');
+      setError('Please draw a longer trace around the spiral guide before submitting.');
       return;
     }
 
@@ -186,47 +186,53 @@ const SpiralDrawing = () => {
     setError('');
 
     try {
-      // 1. Post to FastAPI AI Service
+      // Send raw trajectory points to Python FastAPI microservice
       const res = await axios.post('http://127.0.0.1:8000/api/analyze/spiral', {
-        points: points,
-        center_x: CENTER,
-        center_y: CENTER,
-      }, { timeout: 3000 }); // Short timeout to fallback quickly
+        points: points.map((p) => ({ x: p.x, y: p.y, t: p.t })),
+      }, { timeout: 3000 });
 
       if (res.data.success) {
-        // Save to Express Backend
-        await api.post('/assessments', {
-          type: 'spiral_drawing',
-          score: res.data.score,
-          metrics: res.data.metrics,
+        const data = res.data;
+        setResult({
+          score: data.score,
+          metrics: {
+            deviation: data.metrics.deviation_percentage,
+            tremorIndex: data.metrics.tremor_index_hz,
+            smoothness: data.metrics.smoothness_score,
+          },
+          source: 'FastAPI Microservice',
         });
 
-        setResult({
-          score: res.data.score,
-          metrics: res.data.metrics,
-          source: 'Python AI Service'
+        // Save motor assessment to Node MongoDB backend
+        await api.post('/assessments/motor', {
+          type: 'Spiral Drawing',
+          score: data.score,
+          metrics: {
+            deviation: data.metrics.deviation_percentage,
+            tremorIndex: data.metrics.tremor_index_hz,
+            smoothness: data.metrics.smoothness_score,
+          },
         });
       }
     } catch (err) {
-      console.warn('FastAPI offline or failed. Falling back to local JS motor calculations.', err.message);
-      
-      // Fallback calculations
-      const fallback = calculateLocalMetrics();
+      console.warn('FastAPI Service Offline, failing back to local client math engine.', err.message);
 
+      // Local fallback calculation
+      const localRes = calculateLocalMetrics();
+      setResult({
+        ...localRes,
+        source: 'Local Math Engine',
+      });
+
+      // Save to database
       try {
-        await api.post('/assessments', {
-          type: 'spiral_drawing',
-          score: fallback.score,
-          metrics: fallback.metrics,
-        });
-
-        setResult({
-          score: fallback.score,
-          metrics: fallback.metrics,
-          source: 'Client-Side Regression (Offline Fallback)'
+        await api.post('/assessments/motor', {
+          type: 'Spiral Drawing',
+          score: localRes.score,
+          metrics: localRes.metrics,
         });
       } catch (dbErr) {
-        setError('Failed to write assessment scores to Node.js backend. Verify API service.');
+        console.error('Error saving local motor assessment to DB:', dbErr);
       }
     } finally {
       setAnalyzing(false);
@@ -234,7 +240,7 @@ const SpiralDrawing = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#080c14] text-white px-4 py-8 flex flex-col items-center">
+    <div className="min-h-screen bg-slate-50 text-slate-900 px-4 py-8 flex flex-col items-center font-sans">
       <div className="w-full max-w-4xl grid grid-cols-1 lg:grid-cols-3 gap-8">
         
         {/* Drawing space columns */}
@@ -243,79 +249,79 @@ const SpiralDrawing = () => {
             <div className="flex items-center gap-3">
               <button
                 onClick={() => navigate('/')}
-                className="p-2 rounded-lg bg-slate-900/60 border border-white/5 hover:border-white/20 transition-all cursor-pointer"
+                className="p-2 rounded-xl bg-white border border-slate-200 hover:bg-slate-100 transition-all cursor-pointer shadow-sm text-slate-700"
               >
-                <ArrowLeft className="w-5 h-5 text-gray-300" />
+                <ArrowLeft className="w-5 h-5" />
               </button>
               <div>
-                <h1 className="text-xl font-bold">Spiral Drawing Assessment</h1>
-                <p className="text-gray-400 text-xs mt-0.5">Trace the guide from the center dot outward</p>
+                <h1 className="text-xl font-bold font-display text-slate-900">Spiral Drawing Assessment</h1>
+                <p className="text-slate-500 text-xs mt-0.5 font-medium">Trace the guide from the center dot outward</p>
               </div>
             </div>
           </div>
 
           {/* Canvas Wrapper */}
-          <div className="relative border border-white/10 rounded-2xl overflow-hidden bg-slate-950/70 p-2 shadow-2xl">
+          <div className="relative border border-slate-200 rounded-2xl overflow-hidden bg-white p-3 shadow-md">
             <canvas
               ref={canvasRef}
               onMouseDown={startDrawing}
               onMouseMove={draw}
               onMouseUp={stopDrawing}
               onMouseLeave={stopDrawing}
-              className="bg-slate-950 rounded-xl canvas-crosshair"
+              className="bg-slate-50 rounded-xl canvas-crosshair border border-slate-200"
             />
           </div>
 
           <div className="flex gap-4 mt-6 w-full max-w-[500px]">
             <button
               onClick={handleClear}
-              className="flex-1 py-2.5 bg-slate-900 border border-white/10 hover:bg-slate-800 text-white font-bold text-sm rounded-xl transition-all cursor-pointer flex items-center justify-center gap-1.5"
+              className="flex-1 py-2.5 bg-white border border-slate-200 hover:bg-slate-100 text-slate-700 font-bold text-sm rounded-xl transition-all cursor-pointer flex items-center justify-center gap-1.5 shadow-sm"
             >
-              <RefreshCw className="w-4 h-4" />
+              <RefreshCw className="w-4 h-4 text-slate-500" />
               Clear Canvas
             </button>
             <button
               onClick={handleAnalyze}
               disabled={analyzing || points.length === 0}
-              className="flex-1 py-2.5 bg-gradient-to-r from-cyanAccent to-blueAccent hover:from-cyanAccent hover:to-blueAccent/80 text-slate-900 font-bold text-sm rounded-xl shadow-lg glow-cyan transition-all cursor-pointer disabled:opacity-50 flex items-center justify-center gap-1.5"
+              className="flex-1 py-2.5 bg-teal-600 hover:bg-teal-700 text-white font-bold text-sm rounded-xl shadow-md transition-all cursor-pointer disabled:opacity-50 flex items-center justify-center gap-1.5"
             >
               {analyzing ? 'Analyzing Drawing...' : 'Submit Drawing'}
             </button>
           </div>
-          {error && <p className="text-red-400 text-xs mt-3 text-center">{error}</p>}
+          {error && <p className="text-rose-600 text-xs mt-3 text-center font-medium">{error}</p>}
         </div>
 
         {/* Diagnostic parameters side panel */}
         <div className="lg:col-span-1 flex flex-col gap-6">
-          <div className="glass-card p-6 rounded-2xl h-full flex flex-col justify-between">
+          <div className="bg-white border border-slate-200 p-6 rounded-2xl h-full flex flex-col justify-between shadow-sm">
             <div>
-              <h3 className="text-base font-semibold mb-4 text-white">Digital Biomarker Metrics</h3>
-              <p className="text-xs text-gray-400 leading-relaxed mb-6">
+              <h3 className="text-base font-bold font-display mb-3 text-slate-900">Digital Biomarker Metrics</h3>
+              <p className="text-xs text-slate-500 leading-relaxed mb-6 font-medium">
                 This test tracks kinetic tremors and bradykinesia by comparing your hand velocity and deviation against an Archimedean spiral formula.
               </p>
 
               {!result ? (
-                <div className="p-4 border border-dashed border-white/10 rounded-xl text-center text-xs text-gray-500 py-12">
+                <div className="p-4 border border-dashed border-slate-200 rounded-xl text-center text-xs text-slate-400 py-12 font-medium">
                   Draw and submit a tracing to view fine-motor spectral coordinates.
                 </div>
               ) : (
                 <div className="space-y-4">
-                  <div className="p-4 bg-slate-950 border border-white/5 rounded-xl">
-                    <span className="text-[10px] text-gray-500 font-bold uppercase tracking-wider">Fine Motor Score</span>
-                    <p className="text-3xl font-black text-cyanAccent mt-1 text-glow-cyan">{result.score}/100</p>
+                  <div className="p-4 bg-teal-50 border border-teal-200 rounded-xl">
+                    <span className="text-[10px] text-teal-800 font-bold uppercase tracking-wider">Fine Motor Score</span>
+                    <p className="text-3xl font-black text-teal-700 mt-1 font-display">{result.score}/100</p>
                   </div>
                   <div className="space-y-3">
-                    <div className="flex justify-between items-center text-xs pb-2 border-b border-white/5">
-                      <span className="text-gray-400">Archimedean Deviation</span>
-                      <span className="font-bold text-white">{result.metrics.deviation}%</span>
+                    <div className="flex justify-between items-center text-xs pb-2 border-b border-slate-100">
+                      <span className="text-slate-500 font-medium">Archimedean Deviation</span>
+                      <span className="font-bold text-slate-900">{result.metrics.deviation}%</span>
                     </div>
-                    <div className="flex justify-between items-center text-xs pb-2 border-b border-white/5">
-                      <span className="text-gray-400">Kinetic Tremor Index</span>
-                      <span className="font-bold text-white">{result.metrics.tremorIndex} Hz</span>
+                    <div className="flex justify-between items-center text-xs pb-2 border-b border-slate-100">
+                      <span className="text-slate-500 font-medium">Kinetic Tremor Index</span>
+                      <span className="font-bold text-slate-900">{result.metrics.tremorIndex} Hz</span>
                     </div>
-                    <div className="flex justify-between items-center text-xs pb-2 border-b border-white/5">
-                      <span className="text-gray-400">Drawing Smoothness</span>
-                      <span className="font-bold text-white">{result.metrics.smoothness}%</span>
+                    <div className="flex justify-between items-center text-xs pb-2 border-b border-slate-100">
+                      <span className="text-slate-500 font-medium">Drawing Smoothness</span>
+                      <span className="font-bold text-slate-900">{result.metrics.smoothness}%</span>
                     </div>
                   </div>
                 </div>
@@ -323,8 +329,8 @@ const SpiralDrawing = () => {
             </div>
 
             {result && (
-              <div className="mt-6 pt-4 border-t border-white/5 text-[10px] text-gray-500 flex items-center gap-1.5">
-                <Cpu className="w-3.5 h-3.5 text-cyanAccent" />
+              <div className="mt-6 pt-4 border-t border-slate-100 text-[10px] text-slate-400 font-medium flex items-center gap-1.5">
+                <Cpu className="w-3.5 h-3.5 text-teal-600" />
                 <span>Processed via {result.source}</span>
               </div>
             )}

@@ -105,24 +105,24 @@ const Chatbot = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#080c14] text-white px-4 py-8 flex flex-col items-center">
-      <div className="w-full max-w-3xl flex flex-col h-[85vh] glass-card rounded-2xl overflow-hidden shadow-2xl">
+    <div className="min-h-screen bg-slate-50 text-slate-900 px-4 py-8 flex flex-col items-center font-sans">
+      <div className="w-full max-w-3xl flex flex-col h-[85vh] bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-md">
         
         {/* Header */}
-        <div className="p-4 bg-slate-900/80 border-b border-white/5 flex items-center justify-between">
+        <div className="p-4 bg-teal-50 border-b border-teal-100 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <button
               onClick={() => navigate('/')}
-              className="p-2 rounded-lg bg-slate-950 border border-white/5 hover:border-white/20 transition-all cursor-pointer text-gray-300"
+              className="p-2 rounded-xl bg-white border border-slate-200 hover:bg-slate-100 transition-all cursor-pointer shadow-sm text-slate-700"
             >
               <ArrowLeft className="w-4 h-4" />
             </button>
             <div className="flex items-center gap-2">
-              <div className="p-1.5 bg-cyanAccent/10 rounded-lg text-cyanAccent">
+              <div className="p-1.5 bg-teal-600 rounded-lg text-white shadow-sm">
                 <Sparkles className="w-4 h-4" />
               </div>
               <div>
-                <h1 className="text-sm font-bold text-white flex items-center gap-1.5">
+                <h1 className="text-sm font-bold text-slate-900 font-display flex items-center gap-1.5">
                   ParkinsonCare AI Assistant
                   <span className="text-[9px] bg-cyanAccent/10 text-cyanAccent border border-cyanAccent/20 px-1.5 py-0.5 rounded uppercase font-semibold">Llama 3.2</span>
                 </h1>

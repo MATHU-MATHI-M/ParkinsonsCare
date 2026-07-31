@@ -107,27 +107,27 @@ const ProfileSettings = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#080c14] flex items-center justify-center">
-        <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-cyanAccent"></div>
+      <div className="min-h-screen bg-slate-50 flex items-center justify-center">
+        <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-teal-600"></div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-[#080c14] text-white px-4 py-8">
+    <div className="min-h-screen bg-slate-50 text-slate-900 px-4 py-8 font-sans">
       <div className="max-w-3xl mx-auto">
         
         {/* Header */}
         <div className="flex items-center gap-4 mb-8">
           <button
             onClick={() => navigate('/')}
-            className="p-2 rounded-lg bg-slate-900/60 border border-white/5 hover:border-white/20 transition-all cursor-pointer"
+            className="p-2 rounded-xl bg-white border border-slate-200 hover:bg-slate-100 transition-all cursor-pointer shadow-sm text-slate-700"
           >
-            <ArrowLeft className="w-5 h-5 text-gray-300" />
+            <ArrowLeft className="w-5 h-5" />
           </button>
           <div>
-            <h1 className="text-2xl font-bold tracking-tight">Clinical Profile Configuration</h1>
-            <p className="text-gray-400 text-xs mt-0.5">Edit patient biometric indices and clinician assignments</p>
+            <h1 className="text-2xl font-bold tracking-tight font-display text-slate-900">Clinical Profile Configuration</h1>
+            <p className="text-slate-500 text-xs mt-0.5 font-medium">Edit patient biometric indices and clinician assignments</p>
           </div>
         </div>
 

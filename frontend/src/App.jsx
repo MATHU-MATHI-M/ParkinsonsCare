@@ -31,8 +31,8 @@ const PrivateRoute = ({ children }) => {
   
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#080c14] flex items-center justify-center">
-        <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-cyanAccent"></div>
+      <div className="min-h-screen bg-slate-50 flex items-center justify-center">
+        <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-teal-600"></div>
       </div>
     );
   }
@@ -55,7 +55,7 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <div className="min-h-screen bg-[#080c14] text-slate-100 flex flex-col">
+      <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col font-sans selection:bg-teal-100 selection:text-teal-900">
         {token && <Navbar />}
         {token && <ChatWidget />}
         

@@ -59,10 +59,10 @@ const Navbar = () => {
         <Link
           key={link.path}
           to={link.path}
-          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all whitespace-nowrap ${
+          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs transition-all whitespace-nowrap ${
             active
-              ? 'bg-cyanAccent/10 text-cyanAccent border border-cyanAccent/20 shadow-[0_0_10px_rgba(6,182,212,0.15)]'
-              : 'text-gray-400 hover:text-white hover:bg-white/5 border border-transparent'
+              ? 'bg-teal-50 text-teal-700 font-semibold border border-teal-200 shadow-sm'
+              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-transparent font-medium'
           }`}
         >
           <Icon className="w-3.5 h-3.5 shrink-0" />
@@ -73,18 +73,18 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="glass-panel sticky top-0 z-50 px-4 md:px-6 py-3 shadow-lg border-b border-white/10">
-      <div className="max-w-7xl mx-auto flex flex-col gap-3">
+    <nav className="bg-white/95 backdrop-blur-md sticky top-0 z-50 px-4 md:px-6 py-2.5 shadow-sm border-b border-slate-200">
+      <div className="max-w-7xl mx-auto flex flex-col gap-2.5">
         {/* Top Row: Logo & Controls (and Desktop Navigation in between) */}
         <div className="flex items-center justify-between gap-4">
           
           {/* Brand Logo */}
-          <Link to="/" className="flex items-center gap-2 shrink-0">
-            <div className="p-2 bg-gradient-to-tr from-cyanAccent to-blueAccent rounded-lg glow-cyan text-slate-900">
+          <Link to="/" className="flex items-center gap-2.5 shrink-0">
+            <div className="p-2 bg-teal-600 rounded-xl shadow-sm text-white">
               <Brain className="w-5 h-5 text-white" />
             </div>
-            <span className="text-lg font-bold tracking-tight bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-              ParkinsonCare <span className="text-cyanAccent font-extrabold">AI</span>
+            <span className="text-lg font-bold tracking-tight font-display text-slate-900">
+              ParkinsonCare <span className="text-teal-600 font-extrabold">AI</span>
             </span>
           </Link>
 
@@ -102,8 +102,8 @@ const Navbar = () => {
                 onClick={isListening ? stopListening : startListening}
                 className={`p-2 rounded-lg border transition-all cursor-pointer ${
                   isListening
-                    ? 'bg-roseAccent/20 border-roseAccent/40 text-roseAccent animate-pulse'
-                    : 'bg-slate-900/60 border-white/10 text-gray-400 hover:text-cyanAccent hover:border-cyanAccent/20'
+                    ? 'bg-rose-50 border-rose-300 text-rose-600 animate-pulse shadow-sm'
+                    : 'bg-slate-50 border-slate-200 text-slate-600 hover:text-teal-700 hover:bg-slate-100 hover:border-slate-300'
                 }`}
                 title={isListening ? 'Listening...' : 'Voice Navigation'}
               >
@@ -115,23 +115,23 @@ const Navbar = () => {
             <div className="relative">
               <button
                 onClick={() => setShowLangMenu(!showLangMenu)}
-                className="flex items-center gap-1 px-2 py-1.5 bg-slate-900/60 border border-white/10 rounded-lg text-gray-400 hover:text-white transition-all cursor-pointer text-[10px] font-bold uppercase tracking-wider"
+                className="flex items-center gap-1 px-2.5 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-slate-700 hover:text-slate-900 hover:bg-slate-100 transition-all cursor-pointer text-[10px] font-bold uppercase tracking-wider"
               >
-                <Globe className="w-3.5 h-3.5" />
+                <Globe className="w-3.5 h-3.5 text-teal-600" />
                 {i18n.language}
-                <ChevronDown className="w-3 h-3" />
+                <ChevronDown className="w-3 h-3 text-slate-400" />
               </button>
 
               {showLangMenu && (
-                <div className="absolute right-0 top-full mt-1 bg-slate-900 border border-white/10 rounded-xl shadow-2xl z-50 min-w-[140px] py-1 max-h-64 overflow-y-auto custom-scrollbar">
+                <div className="absolute right-0 top-full mt-1 bg-white border border-slate-200 rounded-xl shadow-xl z-50 min-w-[140px] py-1 max-h-64 overflow-y-auto">
                   {LANGUAGES.map((lang) => (
                     <button
                       key={lang.code}
                       onClick={() => changeLanguage(lang.code)}
                       className={`w-full text-left px-3 py-2 text-xs transition-colors cursor-pointer ${
                         i18n.language === lang.code
-                          ? 'bg-cyanAccent/10 text-cyanAccent font-bold'
-                          : 'text-gray-300 hover:bg-white/5'
+                          ? 'bg-teal-50 text-teal-700 font-bold'
+                          : 'text-slate-700 hover:bg-slate-50'
                       }`}
                     >
                       {lang.label}
@@ -143,9 +143,9 @@ const Navbar = () => {
 
             {/* Profile Info */}
             <div className="hidden sm:flex flex-col items-end">
-              <span className="text-xs font-semibold text-white">{user.name}</span>
-              <span className="flex items-center gap-1 text-[9px] font-bold uppercase tracking-wider text-cyanAccent bg-cyanAccent/10 px-1.5 py-0.5 rounded border border-cyanAccent/20">
-                <ShieldCheck className="w-2.5 h-2.5" />
+              <span className="text-xs font-semibold text-slate-900">{user.name}</span>
+              <span className="flex items-center gap-1 text-[9px] font-bold uppercase tracking-wider text-teal-700 bg-teal-50 px-1.5 py-0.5 rounded border border-teal-200">
+                <ShieldCheck className="w-2.5 h-2.5 text-teal-600" />
                 {user.role}
               </span>
             </div>
@@ -153,7 +153,7 @@ const Navbar = () => {
             {/* Logout */}
             <button
               onClick={logout}
-              className="flex items-center justify-center p-2 rounded-lg border border-red-500/20 text-red-400 hover:bg-red-500/10 hover:text-red-300 transition-all cursor-pointer"
+              className="flex items-center justify-center p-2 rounded-lg border border-slate-200 text-slate-500 hover:bg-rose-50 hover:text-rose-600 hover:border-rose-200 transition-all cursor-pointer"
               title={t('nav_logout')}
             >
               <LogOut className="w-4 h-4" />
@@ -162,14 +162,14 @@ const Navbar = () => {
         </div>
 
         {/* Bottom Row: Horizontally Scrollable Links on Mobile/Tablet */}
-        <div className="lg:hidden flex items-center gap-1 overflow-x-auto no-scrollbar py-1.5 border-t border-white/5">
+        <div className="lg:hidden flex items-center gap-1 overflow-x-auto no-scrollbar py-1 border-t border-slate-100">
           {renderNavLinks()}
         </div>
       </div>
 
       {/* Voice transcript indicator */}
       {isListening && transcript && (
-        <div className="max-w-7xl mx-auto mt-2 px-3 py-1.5 bg-cyanAccent/10 border border-cyanAccent/20 rounded-lg text-xs text-cyanAccent">
+        <div className="max-w-7xl mx-auto mt-2 px-3 py-1.5 bg-teal-50 border border-teal-200 rounded-lg text-xs text-teal-800">
           🎤 Heard: "{transcript}"
         </div>
       )}

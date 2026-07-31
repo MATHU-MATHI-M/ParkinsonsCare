@@ -249,7 +249,7 @@ const Analytics = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#080c14] text-white px-4 py-8">
+    <div className="min-h-screen bg-slate-50 text-slate-900 px-4 py-8 font-sans">
       <div className="max-w-7xl mx-auto">
         
         {/* Navigation Header */}
@@ -257,12 +257,12 @@ const Analytics = () => {
           <div className="flex items-center gap-4">
             <button
               onClick={() => navigate('/')}
-              className="p-2 rounded-lg bg-slate-900/60 border border-white/5 hover:border-white/20 transition-all cursor-pointer"
+              className="p-2 rounded-xl bg-white border border-slate-200 hover:bg-slate-100 transition-all cursor-pointer shadow-sm text-slate-700"
             >
-              <ArrowLeft className="w-5 h-5 text-gray-300" />
+              <ArrowLeft className="w-5 h-5" />
             </button>
             <div>
-              <h1 className="text-2xl font-bold tracking-tight">Bio-Analytics Console</h1>
+              <h1 className="text-2xl font-bold tracking-tight font-display text-slate-900">Bio-Analytics Console</h1>
               <p className="text-gray-400 text-xs mt-0.5">Neurological and autonomic longitudinal monitoring</p>
             </div>
           </div>

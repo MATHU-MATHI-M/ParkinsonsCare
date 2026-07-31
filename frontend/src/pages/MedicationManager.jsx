@@ -155,26 +155,26 @@ const MedicationManager = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#080c14] flex items-center justify-center">
-        <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-cyanAccent"></div>
+      <div className="min-h-screen bg-slate-50 flex items-center justify-center">
+        <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-teal-600"></div>
       </div>
     );
   }
 
-  const inputClass = 'w-full bg-slate-950 border border-white/10 px-3 py-2 text-xs text-white rounded-lg focus:outline-none focus:border-cyanAccent/50 transition-colors';
-  const labelClass = 'block text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-1';
+  const inputClass = 'w-full bg-slate-50 border border-slate-200 px-3 py-2 text-xs text-slate-900 rounded-xl focus:outline-none focus:border-teal-600 focus:bg-white transition-colors font-medium';
+  const labelClass = 'block text-[10px] font-bold text-slate-700 uppercase tracking-widest mb-1';
 
   return (
-    <div className="min-h-screen bg-[#080c14] text-white px-4 md:px-8 py-8">
+    <div className="min-h-screen bg-slate-50 text-slate-900 px-4 md:px-8 py-8 font-sans">
       <div className="max-w-6xl mx-auto space-y-8">
 
         {/* Header */}
         <div className="flex justify-between items-center">
           <div>
-            <h1 className="text-2xl font-bold tracking-tight bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+            <h1 className="text-2xl font-bold tracking-tight font-display text-slate-900">
               {t('medication_reminders')}
             </h1>
-            <p className="text-gray-400 text-xs mt-0.5">Manage prescriptions, schedules, and voice call reminders</p>
+            <p className="text-slate-500 text-xs mt-0.5 font-medium">Manage prescriptions, schedules, and voice call reminders</p>
           </div>
           <button
             onClick={() => { resetForm(); setShowForm(!showForm); }}

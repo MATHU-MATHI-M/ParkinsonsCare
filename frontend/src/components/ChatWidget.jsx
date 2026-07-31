@@ -111,29 +111,29 @@ const ChatWidget = () => {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end font-sans">
       
       {/* Floating Chat Window Panel */}
       {isOpen && (
         <div 
-          className={`mb-4 bg-slate-950/95 border border-white/10 rounded-2xl shadow-2xl flex flex-col overflow-hidden transition-all duration-300 glass-card origin-bottom-right ${
+          className={`mb-4 bg-white border border-slate-200 rounded-2xl shadow-2xl flex flex-col overflow-hidden transition-all duration-300 origin-bottom-right ${
             isExpanded 
               ? 'w-[450px] h-[650px] max-w-[90vw] max-h-[80vh]' 
               : 'w-[360px] h-[480px] max-w-[90vw]'
           }`}
         >
           {/* Header */}
-          <div className="p-3 bg-slate-900/80 border-b border-white/5 flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <div className="p-1.5 bg-cyanAccent/10 rounded-lg text-cyanAccent">
+          <div className="p-3.5 bg-teal-50 border-b border-teal-100 flex items-center justify-between">
+            <div className="flex items-center gap-2.5">
+              <div className="p-1.5 bg-teal-600 rounded-lg text-white shadow-sm">
                 <Sparkles className="w-3.5 h-3.5" />
               </div>
               <div>
-                <h2 className="text-xs font-bold text-white flex items-center gap-1">
+                <h2 className="text-xs font-bold text-slate-900 flex items-center gap-1 font-display">
                   AI Wellness Assistant
-                  <span className="text-[8px] bg-cyanAccent/10 text-cyanAccent border border-cyanAccent/20 px-1 py-0.2 rounded uppercase font-semibold">Llama 3.2</span>
+                  <span className="text-[8px] bg-teal-100 text-teal-800 border border-teal-200 px-1.5 py-0.5 rounded-full uppercase font-bold">Llama 3.2</span>
                 </h2>
-                <p className="text-[9px] text-gray-400">Online Cognitive & Wellness Guide</p>
+                <p className="text-[10px] text-slate-500 font-medium">Clinical & Wellness Knowledge Base</p>
               </div>
             </div>
             
@@ -142,7 +142,7 @@ const ChatWidget = () => {
               <button 
                 type="button"
                 onClick={() => setIsExpanded(!isExpanded)}
-                className="p-1 rounded text-gray-400 hover:text-white hover:bg-white/5 transition-colors cursor-pointer"
+                className="p-1 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-teal-100/50 transition-colors cursor-pointer"
                 title={isExpanded ? 'Minimize' : 'Expand'}
               >
                 {isExpanded ? <Minimize2 className="w-3.5 h-3.5" /> : <Maximize2 className="w-3.5 h-3.5" />}
@@ -150,7 +150,7 @@ const ChatWidget = () => {
               <button 
                 type="button"
                 onClick={() => setIsOpen(false)}
-                className="p-1 rounded text-gray-400 hover:text-white hover:bg-white/5 transition-colors cursor-pointer"
+                className="p-1 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-teal-100/50 transition-colors cursor-pointer"
               >
                 <X className="w-3.5 h-3.5" />
               </button>
@@ -158,7 +158,7 @@ const ChatWidget = () => {
           </div>
 
           {/* Messages list */}
-          <div className="flex-1 overflow-y-auto p-3 space-y-3 custom-scrollbar flex flex-col">
+          <div className="flex-1 overflow-y-auto p-3.5 space-y-3 flex flex-col bg-slate-50/50">
             {messages.map((msg) => {
               const isAI = msg.sender === 'ai';
               return (
@@ -167,19 +167,19 @@ const ChatWidget = () => {
                   className={`flex gap-2 max-w-[85%] ${isAI ? 'self-start' : 'self-end flex-row-reverse ml-auto'}`}
                 >
                   {isAI ? (
-                    <div className="w-7 h-7 rounded-lg bg-cyanAccent/10 border border-cyanAccent/20 flex items-center justify-center text-cyanAccent shrink-0">
+                    <div className="w-7 h-7 rounded-lg bg-teal-100 border border-teal-200 flex items-center justify-center text-teal-700 shrink-0 shadow-sm">
                       <Bot className="w-3.5 h-3.5" />
                     </div>
                   ) : (
-                    <div className="w-7 h-7 rounded-lg bg-slate-800 flex items-center justify-center text-white shrink-0 font-bold text-[10px] uppercase">
+                    <div className="w-7 h-7 rounded-lg bg-slate-200 flex items-center justify-center text-slate-700 shrink-0 font-bold text-[10px] uppercase">
                       Me
                     </div>
                   )}
                   <div
-                    className={`p-2.5 rounded-xl text-[11px] leading-relaxed ${
+                    className={`p-3 rounded-2xl text-[11px] leading-relaxed shadow-sm ${
                       isAI
-                        ? 'bg-slate-900/60 border border-white/5 text-gray-200 rounded-tl-none'
-                        : 'bg-gradient-to-r from-cyanAccent to-blueAccent text-slate-900 font-medium rounded-tr-none shadow-md'
+                        ? 'bg-white border border-slate-200 text-slate-800 rounded-tl-none font-normal'
+                        : 'bg-teal-600 text-white font-medium rounded-tr-none'
                     }`}
                   >
                     <p className="whitespace-pre-line">{msg.text}</p>
@@ -189,11 +189,11 @@ const ChatWidget = () => {
             })}
             {sending && (
               <div className="flex gap-2 max-w-[85%] self-start animate-pulse">
-                <div className="w-7 h-7 rounded-lg bg-cyanAccent/10 border border-cyanAccent/20 flex items-center justify-center text-cyanAccent shrink-0">
+                <div className="w-7 h-7 rounded-lg bg-teal-100 border border-teal-200 flex items-center justify-center text-teal-700 shrink-0">
                   <Bot className="w-3.5 h-3.5" />
                 </div>
-                <div className="p-2.5 bg-slate-900/60 border border-white/5 rounded-xl rounded-tl-none text-[11px] text-gray-500">
-                  AI Agent is thinking...
+                <div className="p-3 bg-white border border-slate-200 rounded-2xl rounded-tl-none text-[11px] text-slate-500 font-medium">
+                  AI Agent is analyzing query...
                 </div>
               </div>
             )}
@@ -201,26 +201,26 @@ const ChatWidget = () => {
           </div>
 
           {/* Disclaimer banner */}
-          <div className="px-3 py-1.5 bg-yellow-500/5 border-t border-b border-yellow-500/10 flex items-center gap-1.5 text-[9px] text-yellow-400">
-            <AlertCircle className="w-3 h-3 shrink-0" />
-            <span>AI assistant is for educational support, not professional medical care.</span>
+          <div className="px-3.5 py-2 bg-amber-50 border-t border-b border-amber-200 flex items-center gap-2 text-[10px] text-amber-800 font-medium">
+            <AlertCircle className="w-3.5 h-3.5 text-amber-600 shrink-0" />
+            <span>AI assistant provides support info only; consult your neurologist for clinical orders.</span>
           </div>
 
           {/* Input form */}
-          <form onSubmit={handleSend} className="p-3 bg-slate-900/80 border-t border-white/5 flex gap-1.5">
+          <form onSubmit={handleSend} className="p-3 bg-white border-t border-slate-200 flex gap-2">
             <input
               type="text"
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
               placeholder="Ask about symptoms, medication, etc."
-              className="flex-1 bg-slate-950 border border-white/10 rounded-xl px-3 py-2 text-[11px] text-white placeholder-gray-500 focus:outline-none focus:border-cyanAccent"
+              className="flex-1 bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-teal-600 focus:bg-white font-medium"
             />
             <button
               type="submit"
               disabled={!inputText.trim() || sending}
-              className="p-2 bg-cyanAccent hover:bg-cyanAccent/90 disabled:opacity-50 text-slate-900 rounded-xl cursor-pointer transition-all flex items-center justify-center shadow-md glow-cyan"
+              className="p-2.5 bg-teal-600 hover:bg-teal-700 disabled:opacity-50 text-white rounded-xl cursor-pointer transition-all flex items-center justify-center shadow-md"
             >
-              <Send className="w-3.5 h-3.5" />
+              <Send className="w-4 h-4" />
             </button>
           </form>
 
@@ -230,7 +230,7 @@ const ChatWidget = () => {
       {/* Floating Action Button (FAB) */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-14 h-14 bg-gradient-to-tr from-cyanAccent to-blueAccent text-slate-900 rounded-full flex items-center justify-center shadow-2xl cursor-pointer transition-all duration-300 hover:scale-110 active:scale-95 glow-cyan relative group"
+        className="w-14 h-14 bg-teal-600 hover:bg-teal-700 text-white rounded-full flex items-center justify-center shadow-xl cursor-pointer transition-all duration-300 hover:scale-105 active:scale-95 relative group"
         title="AI Assistant Chat"
       >
         {isOpen ? (
@@ -240,8 +240,8 @@ const ChatWidget = () => {
             <MessageSquare className="w-6 h-6 text-white" />
             {/* Pulsing indicator dot */}
             <span className="absolute top-0 right-0 flex h-3.5 w-3.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyanAccent opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-cyanAccent border border-slate-900"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-teal-500 border-2 border-white"></span>
             </span>
           </>
         )}

@@ -76,40 +76,40 @@ const DoctorDashboard = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#080c14] flex items-center justify-center">
-        <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-cyanAccent"></div>
+      <div className="min-h-screen bg-slate-50 flex items-center justify-center">
+        <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-teal-600"></div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-[#080c14] text-white px-4 md:px-8 py-8 print:bg-white print:text-black">
+    <div className="min-h-screen bg-slate-50 text-slate-900 px-4 md:px-8 py-8 font-sans print:bg-white print:text-black">
       <div className="max-w-7xl mx-auto space-y-8 print:space-y-4">
         
         {/* Header */}
-        <div className="flex justify-between items-center border-b border-white/5 pb-4 print:border-black print:pb-2">
+        <div className="flex justify-between items-center border-b border-slate-200 pb-4 print:border-black print:pb-2">
           <div>
-            <h1 className="text-2xl font-bold tracking-tight bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent print:text-black">
+            <h1 className="text-2xl font-bold tracking-tight font-display text-slate-900 print:text-black">
               Clinician Roster Control
             </h1>
-            <p className="text-gray-400 text-xs mt-0.5 print:hidden">Monitor motor tremors and medication logs for assigned patients</p>
+            <p className="text-slate-500 text-xs mt-0.5 font-medium print:hidden">Monitor motor tremors and medication logs for assigned patients</p>
           </div>
           {selectedPatientId && summary && (
             <button
               onClick={handleExportPDF}
-              className="flex items-center gap-1.5 px-4 py-2 bg-slate-900 border border-white/10 hover:bg-slate-950 text-xs font-bold rounded-xl cursor-pointer text-gray-200 print:hidden transition-all"
+              className="flex items-center gap-1.5 px-4 py-2 bg-white border border-slate-200 hover:bg-slate-50 text-xs font-bold rounded-xl cursor-pointer text-slate-700 print:hidden transition-all shadow-sm"
             >
-              <Download className="w-4 h-4" />
+              <Download className="w-4 h-4 text-teal-600" />
               Export PDF
             </button>
           )}
         </div>
 
         {patients.length === 0 ? (
-          <div className="glass-card p-12 rounded-2xl border border-white/5 text-center py-16">
-            <User className="w-16 h-16 text-cyanAccent/30 mx-auto mb-4" />
-            <h3 className="text-lg font-bold text-white mb-2">No Assigned Patients</h3>
-            <p className="text-xs text-gray-400 max-w-sm mx-auto leading-relaxed">
+          <div className="bg-white border border-slate-200 p-12 rounded-2xl text-center py-16 shadow-sm">
+            <User className="w-16 h-16 text-teal-600/30 mx-auto mb-4" />
+            <h3 className="text-lg font-bold font-display text-slate-900 mb-2">No Assigned Patients</h3>
+            <p className="text-xs text-slate-500 max-w-sm mx-auto leading-relaxed font-medium">
               There are currently no patients mapped to your clinician credentials in MongoDB. Link patients via Settings.
             </p>
           </div>

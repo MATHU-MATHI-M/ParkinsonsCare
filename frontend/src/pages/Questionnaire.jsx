@@ -63,20 +63,20 @@ const Questionnaire = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#080c14] text-white px-4 py-8">
+    <div className="min-h-screen bg-slate-50 text-slate-900 px-4 py-8 font-sans">
       <div className="max-w-3xl mx-auto">
         
         {/* Header */}
         <div className="flex items-center gap-4 mb-8">
           <button
             onClick={() => navigate('/')}
-            className="p-2 rounded-lg bg-slate-900/60 border border-white/5 hover:border-white/20 transition-all cursor-pointer"
+            className="p-2 rounded-xl bg-white border border-slate-200 hover:bg-slate-100 transition-all cursor-pointer shadow-sm text-slate-700"
           >
-            <ArrowLeft className="w-5 h-5 text-gray-300" />
+            <ArrowLeft className="w-5 h-5" />
           </button>
           <div>
-            <h1 className="text-2xl font-bold tracking-tight">Daily Non-Motor Assessment</h1>
-            <p className="text-gray-400 text-xs mt-1">UPDRS Part I symptoms monitoring</p>
+            <h1 className="text-2xl font-bold tracking-tight font-display text-slate-900">Daily Non-Motor Assessment</h1>
+            <p className="text-slate-500 text-xs mt-1 font-medium">UPDRS Part I symptoms monitoring</p>
           </div>
         </div>
 

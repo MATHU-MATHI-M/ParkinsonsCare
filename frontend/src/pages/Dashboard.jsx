@@ -118,8 +118,8 @@ const Dashboard = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#080c14] flex items-center justify-center">
-        <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-cyanAccent"></div>
+      <div className="min-h-screen bg-slate-50 flex items-center justify-center">
+        <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-teal-600"></div>
       </div>
     );
   }
@@ -128,30 +128,30 @@ const Dashboard = () => {
   const todayStr = new Date().toISOString().split('T')[0];
 
   return (
-    <div className="min-h-screen bg-[#080c14] text-white px-4 md:px-8 py-8">
+    <div className="min-h-screen bg-slate-50 text-slate-900 px-4 md:px-8 py-8 font-sans">
       <div className="max-w-7xl mx-auto space-y-8">
         
         {/* Dynamic Profile info banner */}
-        <div className="glass-card p-6 rounded-2xl flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+        <div className="bg-white border border-slate-200 p-6 rounded-2xl shadow-sm flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
           <div className="flex items-center gap-4">
-            <div className="p-3 bg-cyanAccent/10 text-cyanAccent rounded-xl">
+            <div className="p-3 bg-teal-50 text-teal-700 rounded-xl border border-teal-200">
               <User className="w-6 h-6" />
             </div>
             <div>
-              <h2 className="text-lg font-bold text-white">{user.name}</h2>
-              <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-gray-400 mt-1">
-                <span>Age: <strong className="text-gray-200">{patientProfile?.age || 'Unconfigured'}</strong></span>
-                <span>Stage: <strong className="text-gray-200">{patientProfile?.diseaseStage || 'Unconfigured'}</strong></span>
-                <span>Height: <strong className="text-gray-200">{patientProfile?.height ? `${patientProfile.height}cm` : 'Unconfigured'}</strong></span>
-                <span>Weight: <strong className="text-gray-200">{patientProfile?.weight ? `${patientProfile.weight}kg` : 'Unconfigured'}</strong></span>
+              <h2 className="text-lg font-bold font-display text-slate-900">{user.name}</h2>
+              <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-slate-500 mt-1 font-medium">
+                <span>Age: <strong className="text-slate-800 font-semibold">{patientProfile?.age || 'Unconfigured'}</strong></span>
+                <span>Stage: <strong className="text-slate-800 font-semibold">{patientProfile?.diseaseStage || 'Unconfigured'}</strong></span>
+                <span>Height: <strong className="text-slate-800 font-semibold">{patientProfile?.height ? `${patientProfile.height}cm` : 'Unconfigured'}</strong></span>
+                <span>Weight: <strong className="text-slate-800 font-semibold">{patientProfile?.weight ? `${patientProfile.weight}kg` : 'Unconfigured'}</strong></span>
               </div>
             </div>
           </div>
           <button
             onClick={() => navigate('/settings')}
-            className="flex items-center gap-1.5 px-4 py-2 bg-slate-900 border border-white/10 hover:border-cyanAccent/30 hover:bg-slate-950 text-xs font-bold rounded-xl transition-all cursor-pointer text-gray-200"
+            className="flex items-center gap-1.5 px-4 py-2 bg-slate-50 border border-slate-200 hover:bg-slate-100 hover:border-slate-300 text-xs font-bold rounded-xl transition-all cursor-pointer text-slate-700"
           >
-            <Settings className="w-3.5 h-3.5" />
+            <Settings className="w-3.5 h-3.5 text-teal-600" />
             Configure Profile
           </button>
         </div>
