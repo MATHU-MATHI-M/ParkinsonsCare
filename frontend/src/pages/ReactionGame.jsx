@@ -131,33 +131,33 @@ const ReactionGame = () => {
               <ArrowLeft className="w-5 h-5" />
             </button>
             <div>
-              <h1 className="text-xl font-bold">Reaction Tap Challenge</h1>
-              <p className="text-gray-400 text-xs mt-0.5">Measures motor responsiveness and reflexes</p>
+              <h1 className="text-xl font-bold text-slate-900 font-display">Reaction Tap Challenge</h1>
+              <p className="text-slate-500 text-xs mt-0.5 font-medium">Measures motor responsiveness and reflexes</p>
             </div>
           </div>
 
           {isPlaying && (
-            <div className="text-xs text-gray-400 bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg">
-              Target: <span className="font-bold text-cyanAccent">{targetIndex}</span> / {TOTAL_TARGETS}
+            <div className="text-xs font-bold text-teal-700 bg-teal-50 border border-teal-200 px-3.5 py-2 rounded-xl shadow-sm">
+              Target: <span className="font-extrabold text-teal-800">{targetIndex}</span> / {TOTAL_TARGETS}
             </div>
           )}
         </div>
 
         {/* Game Canvas Area */}
-        <div className="flex-1 w-full bg-slate-950 border border-white/5 rounded-2xl relative overflow-hidden flex flex-col items-center justify-center">
+        <div className="flex-1 w-full bg-white border border-slate-200 rounded-2xl relative overflow-hidden flex flex-col items-center justify-center shadow-sm">
           
           {!isPlaying && !gameOver && (
             <div className="text-center p-8 max-w-sm">
-              <Zap className="w-12 h-12 text-cyanAccent mx-auto mb-4 animate-pulse" />
-              <h3 className="text-lg font-bold mb-2">Test Your Reflexes</h3>
-              <p className="text-xs text-gray-400 leading-relaxed mb-6">
-                Fast-spawning cyan target rings will appear on screen. Click them as quickly as possible. Clicking blank areas counts as a miss.
+              <Zap className="w-12 h-12 text-teal-600 mx-auto mb-4" />
+              <h3 className="text-lg font-bold text-slate-900 font-display mb-2">Test Your Reflexes</h3>
+              <p className="text-xs text-slate-500 leading-relaxed font-medium mb-6">
+                Fast-spawning teal target rings will appear on screen. Click them as quickly as possible. Clicking blank areas counts as a miss.
               </p>
               <button
                 onClick={startGame}
-                className="px-6 py-2.5 bg-cyanAccent text-slate-900 font-bold text-sm rounded-lg hover:bg-cyanAccent/90 transition-all cursor-pointer shadow-lg glow-cyan flex items-center gap-2 mx-auto"
+                className="px-6 py-2.5 bg-teal-600 text-white font-bold text-sm rounded-xl hover:bg-teal-700 transition-all cursor-pointer shadow-md flex items-center gap-2 mx-auto"
               >
-                <Play className="w-4 h-4 fill-slate-900" />
+                <Play className="w-4 h-4 fill-white text-white" />
                 Begin Assessment
               </button>
             </div>
@@ -168,7 +168,7 @@ const ReactionGame = () => {
             <div
               ref={containerRef}
               onClick={handleContainerClick}
-              className="absolute inset-0 w-full h-full cursor-crosshair"
+              className="absolute inset-0 w-full h-full cursor-crosshair bg-slate-50/50"
             >
               <button
                 onClick={handleTargetClick}
@@ -177,9 +177,9 @@ const ReactionGame = () => {
                   top: targetPos.top,
                   left: targetPos.left,
                 }}
-                className="w-12 h-12 rounded-full border-2 border-cyanAccent bg-cyanAccent/30 glow-cyan flex items-center justify-center transition-all scale-100 hover:scale-95 cursor-pointer animate-ping-once"
+                className="w-12 h-12 rounded-full border-2 border-teal-600 bg-teal-500/20 flex items-center justify-center transition-all scale-100 hover:scale-95 cursor-pointer animate-ping-once"
               >
-                <Crosshair className="w-5 h-5 text-white" />
+                <Crosshair className="w-5 h-5 text-teal-700" />
               </button>
             </div>
           )}
@@ -187,39 +187,39 @@ const ReactionGame = () => {
           {/* Game Over Report */}
           {gameOver && (
             <div className="text-center p-8 max-w-md">
-              <Award className="w-16 h-16 text-emeraldAccent mx-auto mb-4 animate-bounce" />
-              <h2 className="text-2xl font-bold text-white mb-2">Reflexes Logged!</h2>
-              <p className="text-xs text-gray-400 mb-6">
+              <Award className="w-16 h-16 text-teal-600 mx-auto mb-4" />
+              <h2 className="text-2xl font-bold text-slate-900 font-display mb-2">Reflexes Logged!</h2>
+              <p className="text-xs text-slate-500 mb-6 font-medium">
                 Clinical test parameters processed. Results have been cataloged in your medical database.
               </p>
 
               <div className="grid grid-cols-3 gap-3 mb-6 text-left">
-                <div className="p-3 bg-slate-900 border border-white/5 rounded-xl text-center">
-                  <span className="text-[10px] text-gray-500 font-bold uppercase">Reflex Score</span>
-                  <p className="text-lg font-bold text-cyanAccent mt-0.5">{calculateScore()}/100</p>
+                <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl text-center">
+                  <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Reflex Score</span>
+                  <p className="text-lg font-bold text-teal-700 mt-0.5">{calculateScore()}/100</p>
                 </div>
-                <div className="p-3 bg-slate-900 border border-white/5 rounded-xl text-center">
-                  <span className="text-[10px] text-gray-500 font-bold uppercase">Avg Speed</span>
-                  <p className="text-lg font-bold text-white mt-0.5">{getAverageReactionTime()}ms</p>
+                <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl text-center">
+                  <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Avg Speed</span>
+                  <p className="text-lg font-bold text-slate-900 mt-0.5">{getAverageReactionTime()}ms</p>
                 </div>
-                <div className="p-3 bg-slate-900 border border-white/5 rounded-xl text-center">
-                  <span className="text-[10px] text-gray-500 font-bold uppercase">Accur. Hits</span>
-                  <p className="text-lg font-bold text-emeraldAccent mt-0.5">{hits}/{TOTAL_TARGETS}</p>
+                <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl text-center">
+                  <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Accur. Hits</span>
+                  <p className="text-lg font-bold text-emerald-700 mt-0.5">{hits}/{TOTAL_TARGETS}</p>
                 </div>
               </div>
 
               <div className="flex gap-4 justify-center">
                 <button
                   onClick={startGame}
-                  className="px-4 py-2 bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs border border-white/10 rounded-lg cursor-pointer transition-all"
+                  className="px-4.5 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs border border-slate-200 rounded-xl cursor-pointer shadow-sm transition-all"
                 >
                   Retry Test
                 </button>
                 <button
                   onClick={() => navigate('/')}
-                  className="px-5 py-2 bg-cyanAccent text-slate-900 font-bold text-xs rounded-lg hover:bg-cyanAccent/90 transition-all cursor-pointer shadow-md glow-cyan"
+                  className="px-5 py-2.5 bg-teal-600 text-white font-bold text-xs rounded-xl hover:bg-teal-700 transition-all cursor-pointer shadow-md"
                 >
-                  Back to Cockpit
+                  Back to Dashboard
                 </button>
               </div>
             </div>

@@ -153,42 +153,42 @@ const MemoryGame = () => {
               <ArrowLeft className="w-5 h-5" />
             </button>
             <div>
-              <h1 className="text-xl font-bold">Memory Match Challenge</h1>
-              <p className="text-gray-400 text-xs mt-0.5">Assesses short-term cognitive retention</p>
+              <h1 className="text-xl font-bold text-slate-900 font-display">Memory Match Challenge</h1>
+              <p className="text-slate-500 text-xs mt-0.5 font-medium">Assesses short-term cognitive retention</p>
             </div>
           </div>
 
           <button
             onClick={initGame}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-white/10 hover:bg-white/5 text-xs transition-all cursor-pointer text-cyanAccent"
+            className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-xs font-bold transition-all cursor-pointer text-teal-700 shadow-sm"
           >
-            <RefreshCw className="w-3.5 h-3.5" />
+            <RefreshCw className="w-3.5 h-3.5 text-teal-600" />
             Restart
           </button>
         </div>
 
         {/* Info Grid */}
         <div className="grid grid-cols-3 gap-4 mb-6">
-          <div className="glass-card p-4 rounded-xl flex items-center justify-between">
+          <div className="bg-white border border-slate-200 p-4 rounded-xl flex items-center justify-between shadow-sm">
             <div>
-              <p className="text-[10px] text-gray-500 font-bold uppercase">Timer</p>
-              <p className="text-lg font-bold text-white mt-1">{time}s</p>
+              <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Timer</p>
+              <p className="text-lg font-extrabold text-slate-900 mt-1">{time}s</p>
             </div>
-            <Clock className="w-5 h-5 text-gray-500" />
+            <Clock className="w-5 h-5 text-teal-600" />
           </div>
-          <div className="glass-card p-4 rounded-xl flex items-center justify-between">
+          <div className="bg-white border border-slate-200 p-4 rounded-xl flex items-center justify-between shadow-sm">
             <div>
-              <p className="text-[10px] text-gray-500 font-bold uppercase">Mistakes</p>
-              <p className="text-lg font-bold text-roseAccent mt-1">{mistakes}</p>
+              <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Mistakes</p>
+              <p className="text-lg font-extrabold text-rose-600 mt-1">{mistakes}</p>
             </div>
-            <AlertTriangle className="w-5 h-5 text-roseAccent/60" />
+            <AlertTriangle className="w-5 h-5 text-rose-500" />
           </div>
-          <div className="glass-card p-4 rounded-xl flex items-center justify-between">
+          <div className="bg-white border border-slate-200 p-4 rounded-xl flex items-center justify-between shadow-sm">
             <div>
-              <p className="text-[10px] text-gray-500 font-bold uppercase">Current Turns</p>
-              <p className="text-lg font-bold text-cyanAccent mt-1">{turns}</p>
+              <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Current Turns</p>
+              <p className="text-lg font-extrabold text-teal-600 mt-1">{turns}</p>
             </div>
-            <Eye className="w-5 h-5 text-cyanAccent/60" />
+            <Eye className="w-5 h-5 text-teal-600" />
           </div>
         </div>
 
@@ -200,16 +200,16 @@ const MemoryGame = () => {
               <div
                 key={card.id}
                 onClick={() => handleCardClick(idx)}
-                className={`h-24 md:h-32 rounded-xl flex items-center justify-center cursor-pointer transition-all border select-none ${
+                className={`h-24 md:h-32 rounded-xl flex items-center justify-center cursor-pointer transition-all border select-none shadow-sm ${
                   isFlipped
-                    ? 'bg-slate-900 border-cyanAccent/50 glow-cyan shadow-md'
-                    : 'bg-gradient-to-br from-slate-900 to-slate-950 border-white/10 hover:border-cyanAccent/30'
+                    ? 'bg-teal-50 border-teal-300 shadow-inner'
+                    : 'bg-white border-slate-200 hover:border-teal-300 hover:bg-slate-50/50'
                 }`}
               >
                 {isFlipped ? (
                   renderIcon(card.icon)
                 ) : (
-                  <Brain className="w-6 h-6 text-gray-700 animate-pulse" />
+                  <Brain className="w-6 h-6 text-teal-600/40 animate-pulse" />
                 )}
               </div>
             );
@@ -218,29 +218,29 @@ const MemoryGame = () => {
 
         {/* GameOver Modal Overlay */}
         {gameOver && (
-          <div className="glass-card p-8 rounded-2xl text-center border-emerald-500/25 glow-emerald">
-            <Trophy className="w-16 h-16 text-emeraldAccent mx-auto mb-4 animate-bounce" />
-            <h2 className="text-2xl font-bold text-white mb-2">Assessment Completed!</h2>
-            <p className="text-xs text-gray-400 max-w-md mx-auto leading-relaxed mb-6">
+          <div className="bg-white border border-slate-200 p-8 rounded-2xl text-center shadow-lg max-w-md mx-auto relative z-10">
+            <Trophy className="w-16 h-16 text-teal-600 mx-auto mb-4" />
+            <h2 className="text-2xl font-bold text-slate-900 font-display mb-2">Assessment Completed!</h2>
+            <p className="text-xs text-slate-500 max-w-md mx-auto leading-relaxed mb-6 font-medium">
               Cognitive match testing successfully processed. Your scores have been sent to your clinician dashboard.
             </p>
 
             <div className="grid grid-cols-2 gap-4 max-w-sm mx-auto mb-6 text-left">
-              <div className="p-3 bg-slate-950 border border-white/5 rounded-xl">
-                <span className="text-[10px] text-gray-400 font-bold uppercase">Memory Score</span>
-                <p className="text-xl font-bold text-cyanAccent mt-0.5">{calculateScore()}/100</p>
+              <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl">
+                <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Memory Score</span>
+                <p className="text-xl font-bold text-teal-600 mt-0.5">{calculateScore()}/100</p>
               </div>
-              <div className="p-3 bg-slate-950 border border-white/5 rounded-xl">
-                <span className="text-[10px] text-gray-400 font-bold uppercase">Time Taken</span>
-                <p className="text-xl font-bold text-white mt-0.5">{time} seconds</p>
+              <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl">
+                <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Time Taken</span>
+                <p className="text-xl font-bold text-slate-900 mt-0.5">{time} seconds</p>
               </div>
             </div>
 
             <button
               onClick={() => navigate('/')}
-              className="px-6 py-2.5 bg-cyanAccent text-slate-900 font-bold text-sm rounded-lg hover:bg-cyanAccent/90 transition-all cursor-pointer shadow-lg glow-cyan"
+              className="w-full py-2.5 bg-teal-600 hover:bg-teal-700 text-white font-bold text-sm rounded-xl transition-all cursor-pointer shadow-md"
             >
-              Return to Cockpit
+              Return to Dashboard
             </button>
           </div>
         )}

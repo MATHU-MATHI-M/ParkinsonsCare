@@ -121,21 +121,21 @@ const NumberSpan = () => {
 
         {/* Setup */}
         {phase === 'setup' && (
-          <div className="glass-card p-8 rounded-2xl text-center space-y-6">
-            <Hash className="w-16 h-16 text-blueAccent mx-auto" />
-            <h2 className="text-lg font-bold">Select Difficulty</h2>
+          <div className="bg-white border border-slate-200 p-8 rounded-2xl text-center space-y-6 shadow-sm">
+            <Hash className="w-16 h-16 text-teal-600 mx-auto" />
+            <h2 className="text-lg font-bold text-slate-900 font-display">Select Difficulty</h2>
             <div className="flex justify-center gap-4">
               {DIFFICULTY.map((lvl, idx) => (
                 <button key={idx} onClick={() => setDifficulty(idx)}
-                  className={`px-5 py-3 rounded-xl text-xs font-bold border transition-all cursor-pointer ${
-                    difficulty === idx ? 'bg-cyanAccent/15 border-cyanAccent text-cyanAccent' : 'bg-slate-900 border-white/10 text-gray-400 hover:text-white'
+                  className={`px-5 py-3 rounded-xl text-xs font-bold border transition-all cursor-pointer shadow-sm ${
+                    difficulty === idx ? 'bg-teal-50 border-teal-300 text-teal-700' : 'bg-white border-slate-200 text-slate-600 hover:bg-slate-50'
                   }`}>
                   {lvl.name}
-                  <p className="text-[9px] text-gray-500 mt-1">Start: {lvl.startLen} digits</p>
+                  <p className="text-[10px] text-slate-500 mt-1">Start: {lvl.startLen} digits</p>
                 </button>
               ))}
             </div>
-            <button onClick={startGame} className="px-8 py-3 bg-cyanAccent text-slate-900 font-bold text-sm rounded-xl cursor-pointer hover:bg-cyanAccent/90 transition-all">
+            <button onClick={startGame} className="px-8 py-3 bg-teal-600 text-white font-bold text-sm rounded-xl cursor-pointer hover:bg-teal-700 transition-all shadow-md">
               Start Test
             </button>
           </div>
@@ -143,23 +143,23 @@ const NumberSpan = () => {
 
         {/* Show Phase - flash digits */}
         {phase === 'show' && (
-          <div className="glass-card p-12 rounded-2xl text-center space-y-6">
-            <div className="flex items-center justify-center gap-2 text-cyanAccent">
+          <div className="bg-white border border-slate-200 p-12 rounded-2xl text-center space-y-6 shadow-sm">
+            <div className="flex items-center justify-center gap-2 text-teal-600">
               <Eye className="w-5 h-5" />
               <span className="text-sm font-bold">Round {roundNum} — Watch carefully!</span>
             </div>
             <div className="h-32 flex items-center justify-center">
               {displayIdx < sequence.length ? (
-                <span className="text-7xl font-black text-white animate-pulse tabular-nums" key={displayIdx}>
+                <span className="text-7xl font-black text-slate-900 animate-pulse tabular-nums" key={displayIdx}>
                   {sequence[displayIdx]}
                 </span>
               ) : (
-                <span className="text-lg text-gray-500">Get ready to type...</span>
+                <span className="text-lg text-slate-400 font-medium">Get ready to type...</span>
               )}
             </div>
-            <div className="flex justify-center gap-1">
+            <div className="flex justify-center gap-1.5">
               {sequence.map((_, i) => (
-                <div key={i} className={`w-3 h-3 rounded-full transition-all ${i < displayIdx ? 'bg-cyanAccent' : 'bg-slate-700'}`} />
+                <div key={i} className={`w-3 h-3 rounded-full transition-all ${i < displayIdx ? 'bg-teal-600' : 'bg-slate-200'}`} />
               ))}
             </div>
           </div>
@@ -167,8 +167,8 @@ const NumberSpan = () => {
 
         {/* Input Phase */}
         {phase === 'input' && (
-          <div className="glass-card p-8 rounded-2xl text-center space-y-6">
-            <div className="flex items-center justify-center gap-2 text-roseAccent">
+          <div className="bg-white border border-slate-200 p-8 rounded-2xl text-center space-y-6 shadow-sm">
+            <div className="flex items-center justify-center gap-2 text-rose-600">
               <EyeOff className="w-5 h-5" />
               <span className="text-sm font-bold">Type the {sequence.length}-digit sequence</span>
             </div>
@@ -179,13 +179,13 @@ const NumberSpan = () => {
               onChange={e => { const v = e.target.value.replace(/\D/g, ''); setUserInput(v); }}
               maxLength={sequence.length}
               placeholder={'_ '.repeat(sequence.length)}
-              className="w-full max-w-xs mx-auto bg-slate-950 border border-white/10 px-6 py-4 text-3xl text-center text-white rounded-xl focus:outline-none focus:border-cyanAccent/50 tracking-[0.5em] font-mono"
+              className="w-full max-w-xs mx-auto bg-slate-50 border border-slate-200 px-6 py-4 text-3xl text-center text-slate-900 rounded-xl focus:outline-none focus:border-teal-500 tracking-[0.5em] font-mono"
             />
-            <p className="text-xs text-gray-500">{userInput.length} / {sequence.length} digits entered</p>
+            <p className="text-xs text-slate-500 font-semibold">{userInput.length} / {sequence.length} digits entered</p>
             <button
               onClick={handleSubmitRound}
               disabled={userInput.length !== sequence.length}
-              className="px-8 py-3 bg-emeraldAccent text-slate-900 font-bold text-sm rounded-xl cursor-pointer hover:bg-emeraldAccent/90 transition-all disabled:opacity-40 disabled:cursor-not-allowed"
+              className="px-8 py-3 bg-teal-600 text-white font-bold text-sm rounded-xl cursor-pointer hover:bg-teal-700 transition-all disabled:opacity-40 disabled:cursor-not-allowed shadow-md"
             >
               Submit
             </button>
@@ -194,31 +194,31 @@ const NumberSpan = () => {
 
         {/* Result Phase */}
         {phase === 'result' && score && (
-          <div className="glass-card p-8 rounded-2xl text-center space-y-6">
-            <div className="text-5xl font-black text-white text-glow-cyan">{score.finalScore}</div>
-            <p className="text-xs text-gray-400">Working Memory Score</p>
+          <div className="bg-white border border-slate-200 p-8 rounded-2xl text-center space-y-6 shadow-sm">
+            <div className="text-5xl font-black text-slate-900 font-display">{score.finalScore}</div>
+            <p className="text-xs text-slate-500 font-semibold uppercase tracking-wider">Working Memory Score</p>
 
             <div className="grid grid-cols-3 gap-4 max-w-sm mx-auto">
-              <div className="p-3 bg-emerald-500/10 border border-emerald-500/20 rounded-xl">
-                <p className="text-2xl font-bold text-emeraldAccent">{score.maxSpan}</p>
-                <p className="text-[10px] text-gray-400">Max Span</p>
+              <div className="p-3 bg-emerald-50 border border-emerald-200 rounded-xl shadow-sm">
+                <p className="text-2xl font-bold text-emerald-700">{score.maxSpan}</p>
+                <p className="text-[10px] text-slate-500 font-semibold uppercase">Max Span</p>
               </div>
-              <div className="p-3 bg-cyanAccent/10 border border-cyanAccent/20 rounded-xl">
-                <p className="text-2xl font-bold text-cyanAccent">{score.correctCount}</p>
-                <p className="text-[10px] text-gray-400">Correct</p>
+              <div className="p-3 bg-teal-50 border border-teal-200 rounded-xl shadow-sm">
+                <p className="text-2xl font-bold text-teal-700">{score.correctCount}</p>
+                <p className="text-[10px] text-slate-500 font-semibold uppercase">Correct</p>
               </div>
-              <div className="p-3 bg-blueAccent/10 border border-blueAccent/20 rounded-xl">
-                <p className="text-2xl font-bold text-blueAccent">{score.totalRounds}</p>
-                <p className="text-[10px] text-gray-400">Rounds</p>
+              <div className="p-3 bg-blue-50 border border-blue-200 rounded-xl shadow-sm">
+                <p className="text-2xl font-bold text-blue-700">{score.totalRounds}</p>
+                <p className="text-[10px] text-slate-500 font-semibold uppercase">Rounds</p>
               </div>
             </div>
 
             {/* Round History */}
-            <div className="text-left bg-slate-900/60 p-4 rounded-xl space-y-2 max-h-48 overflow-y-auto custom-scrollbar">
+            <div className="text-left bg-slate-50 border border-slate-200 p-4 rounded-xl space-y-2 max-h-48 overflow-y-auto custom-scrollbar shadow-inner">
               {rounds.map((r, i) => (
-                <div key={i} className="flex justify-between items-center text-xs border-b border-white/5 pb-1.5">
-                  <span className="text-gray-400">Round {r.round} ({r.length} digits): <span className="font-mono text-gray-200">{r.sequence.join('')}</span></span>
-                  <span className={r.correct ? 'text-emeraldAccent font-bold' : 'text-roseAccent font-bold'}>
+                <div key={i} className="flex justify-between items-center text-xs border-b border-slate-200 pb-1.5 font-medium">
+                  <span className="text-slate-500">Round {r.round} ({r.length} digits): <span className="font-mono text-slate-800 font-bold">{r.sequence.join('')}</span></span>
+                  <span className={r.correct ? 'text-emerald-700 font-bold' : 'text-rose-600 font-bold'}>
                     {r.correct ? '✓' : `✗ (${r.entered.join('')})`}
                   </span>
                 </div>
@@ -226,14 +226,14 @@ const NumberSpan = () => {
             </div>
 
             <div className="flex gap-4 justify-center">
-              <button onClick={() => setPhase('setup')} className="flex items-center gap-1.5 px-5 py-2.5 bg-slate-900 border border-white/10 text-xs font-bold rounded-xl cursor-pointer text-gray-200">
+              <button onClick={() => setPhase('setup')} className="flex items-center gap-1.5 px-5 py-2.5 bg-slate-100 border border-slate-200 text-xs font-bold rounded-xl cursor-pointer text-slate-700 hover:bg-slate-200 transition-all shadow-sm">
                 <RotateCcw className="w-3.5 h-3.5" /> Try Again
               </button>
-              <button onClick={() => navigate('/games')} className="px-5 py-2.5 bg-cyanAccent text-slate-900 text-xs font-bold rounded-xl cursor-pointer hover:bg-cyanAccent/90">
+              <button onClick={() => navigate('/games')} className="px-5 py-2.5 bg-teal-600 text-white text-xs font-bold rounded-xl cursor-pointer hover:bg-teal-700 transition-all shadow-md">
                 Back to Hub
               </button>
             </div>
-            {saving && <p className="text-[10px] text-gray-500 animate-pulse">Saving to MongoDB...</p>}
+            {saving && <p className="text-[10px] text-teal-600 animate-pulse font-semibold">Saving to MongoDB...</p>}
           </div>
         )}
       </div>

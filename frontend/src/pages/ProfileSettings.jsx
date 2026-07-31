@@ -132,7 +132,7 @@ const ProfileSettings = () => {
         </div>
 
         {message && (
-          <div className="p-3 bg-cyanAccent/10 border border-cyanAccent/20 text-cyanAccent text-xs rounded-xl mb-6 text-center">
+          <div className="p-3 bg-teal-50 border border-teal-200 text-teal-700 text-xs font-semibold rounded-xl mb-6 text-center">
             {message}
           </div>
         )}
@@ -140,31 +140,31 @@ const ProfileSettings = () => {
         <form onSubmit={handleSubmit} className="space-y-6">
           
           {/* Biometrics Card */}
-          <div className="glass-card p-6 rounded-2xl space-y-4">
-            <h3 className="text-base font-bold text-white flex items-center gap-2 border-b border-white/5 pb-2">
-              <User className="w-4 h-4 text-cyanAccent" />
+          <div className="bg-white border border-slate-200 p-6 rounded-2xl space-y-4 shadow-sm">
+            <h3 className="text-base font-bold text-slate-800 font-display flex items-center gap-2 border-b border-slate-200 pb-2">
+              <User className="w-4 h-4 text-teal-600" />
               Patient Biometrics
             </h3>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div>
-                <label className="block text-[10px] text-gray-400 font-bold uppercase tracking-wider mb-1">Age (Years)</label>
+                <label className="block text-[10px] text-slate-500 font-bold uppercase tracking-wider mb-1">Age (Years)</label>
                 <input
                   type="number"
                   name="age"
                   value={formData.age}
                   onChange={handleChange}
                   placeholder="E.g. 68"
-                  className="w-full bg-slate-900/60 border border-white/10 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-cyanAccent"
+                  className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-teal-600 font-medium"
                 />
               </div>
               <div>
-                <label className="block text-[10px] text-gray-400 font-bold uppercase tracking-wider mb-1">Gender</label>
+                <label className="block text-[10px] text-slate-500 font-bold uppercase tracking-wider mb-1">Gender</label>
                 <select
                   name="gender"
                   value={formData.gender}
                   onChange={handleChange}
-                  className="w-full bg-slate-900/60 border border-white/10 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-cyanAccent"
+                  className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-teal-600 font-semibold"
                 >
                   <option value="Male">Male</option>
                   <option value="Female">Female</option>
@@ -173,12 +173,12 @@ const ProfileSettings = () => {
                 </select>
               </div>
               <div>
-                <label className="block text-[10px] text-gray-400 font-bold uppercase tracking-wider mb-1">Disease Stage (Hoehn & Yahr)</label>
+                <label className="block text-[10px] text-slate-500 font-bold uppercase tracking-wider mb-1">Disease Stage (Hoehn & Yahr)</label>
                 <select
                   name="diseaseStage"
                   value={formData.diseaseStage}
                   onChange={handleChange}
-                  className="w-full bg-slate-900/60 border border-white/10 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-cyanAccent"
+                  className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-teal-600 font-semibold"
                 >
                   <option value="Stage 1 (Mild)">Stage 1 (Mild)</option>
                   <option value="Stage 2 (Bilateral)">Stage 2 (Bilateral)</option>
@@ -191,45 +191,45 @@ const ProfileSettings = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label className="block text-[10px] text-gray-400 font-bold uppercase tracking-wider mb-1">Height (cm)</label>
+                <label className="block text-[10px] text-slate-500 font-bold uppercase tracking-wider mb-1">Height (cm)</label>
                 <input
                   type="number"
                   name="height"
                   value={formData.height}
                   onChange={handleChange}
                   placeholder="E.g. 175"
-                  className="w-full bg-slate-900/60 border border-white/10 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-cyanAccent"
+                  className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-teal-600 font-medium"
                 />
               </div>
               <div>
-                <label className="block text-[10px] text-gray-400 font-bold uppercase tracking-wider mb-1">Weight (kg)</label>
+                <label className="block text-[10px] text-slate-500 font-bold uppercase tracking-wider mb-1">Weight (kg)</label>
                 <input
                   type="number"
                   name="weight"
                   value={formData.weight}
                   onChange={handleChange}
                   placeholder="E.g. 74"
-                  className="w-full bg-slate-900/60 border border-white/10 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-cyanAccent"
+                  className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-teal-600 font-medium"
                 />
               </div>
             </div>
           </div>
 
           {/* Clinician Mapping Card */}
-          <div className="glass-card p-6 rounded-2xl space-y-4">
-            <h3 className="text-base font-bold text-white flex items-center gap-2 border-b border-white/5 pb-2">
-              <Activity className="w-4 h-4 text-cyanAccent" />
+          <div className="bg-white border border-slate-200 p-6 rounded-2xl space-y-4 shadow-sm">
+            <h3 className="text-base font-bold text-slate-800 font-display flex items-center gap-2 border-b border-slate-200 pb-2">
+              <Activity className="w-4 h-4 text-teal-600" />
               Clinical Team Assignment
             </h3>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label className="block text-[10px] text-gray-400 font-bold uppercase tracking-wider mb-1">Assigned Doctor</label>
+                <label className="block text-[10px] text-slate-500 font-bold uppercase tracking-wider mb-1">Assigned Doctor</label>
                 <select
                   name="doctor"
                   value={formData.doctor}
                   onChange={handleChange}
-                  className="w-full bg-slate-900/60 border border-white/10 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-cyanAccent"
+                  className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-teal-600 font-semibold"
                 >
                   <option value="">-- Select Clinician --</option>
                   {clinicians.doctors.map((d) => (
@@ -238,12 +238,12 @@ const ProfileSettings = () => {
                 </select>
               </div>
               <div>
-                <label className="block text-[10px] text-gray-400 font-bold uppercase tracking-wider mb-1">Assigned Caregiver</label>
+                <label className="block text-[10px] text-slate-500 font-bold uppercase tracking-wider mb-1">Assigned Caregiver</label>
                 <select
                   name="caregiver"
                   value={formData.caregiver}
                   onChange={handleChange}
-                  className="w-full bg-slate-900/60 border border-white/10 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-cyanAccent"
+                  className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-teal-600 font-semibold"
                 >
                   <option value="">-- Select Caregiver --</option>
                   {clinicians.caregivers.map((c) => (
@@ -255,44 +255,44 @@ const ProfileSettings = () => {
           </div>
 
           {/* Emergency Contacts Card */}
-          <div className="glass-card p-6 rounded-2xl space-y-4">
-            <h3 className="text-base font-bold text-white flex items-center gap-2 border-b border-white/5 pb-2">
-              <Heart className="w-4 h-4 text-roseAccent" />
+          <div className="bg-white border border-slate-200 p-6 rounded-2xl space-y-4 shadow-sm">
+            <h3 className="text-base font-bold text-slate-800 font-display flex items-center gap-2 border-b border-slate-200 pb-2">
+              <Heart className="w-4 h-4 text-rose-600" />
               Emergency Mappings
             </h3>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div>
-                <label className="block text-[10px] text-gray-400 font-bold uppercase tracking-wider mb-1">Contact Name</label>
+                <label className="block text-[10px] text-slate-500 font-bold uppercase tracking-wider mb-1">Contact Name</label>
                 <input
                   type="text"
                   name="emergencyContactName"
                   value={formData.emergencyContactName}
                   onChange={handleChange}
                   placeholder="Sarah Chen"
-                  className="w-full bg-slate-900/60 border border-white/10 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-cyanAccent"
+                  className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-teal-600 font-medium"
                 />
               </div>
               <div>
-                <label className="block text-[10px] text-gray-400 font-bold uppercase tracking-wider mb-1">Relationship</label>
+                <label className="block text-[10px] text-slate-500 font-bold uppercase tracking-wider mb-1">Relationship</label>
                 <input
                   type="text"
                   name="emergencyContactRelation"
                   value={formData.emergencyContactRelation}
                   onChange={handleChange}
                   placeholder="Spouse / Child"
-                  className="w-full bg-slate-900/60 border border-white/10 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-cyanAccent"
+                  className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-teal-600 font-medium"
                 />
               </div>
               <div>
-                <label className="block text-[10px] text-gray-400 font-bold uppercase tracking-wider mb-1">Contact Phone</label>
+                <label className="block text-[10px] text-slate-500 font-bold uppercase tracking-wider mb-1">Contact Phone</label>
                 <input
                   type="text"
                   name="emergencyContactPhone"
                   value={formData.emergencyContactPhone}
                   onChange={handleChange}
                   placeholder="+1 (555) 019-9022"
-                  className="w-full bg-slate-900/60 border border-white/10 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-cyanAccent"
+                  className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-teal-600 font-medium"
                 />
               </div>
             </div>
@@ -302,7 +302,7 @@ const ProfileSettings = () => {
           <button
             type="submit"
             disabled={saving}
-            className="w-full py-3 bg-gradient-to-r from-cyanAccent to-blueAccent text-slate-900 hover:from-cyanAccent hover:to-blueAccent/80 font-bold text-sm rounded-xl shadow-lg glow-cyan transition-all flex items-center justify-center gap-1.5 cursor-pointer disabled:opacity-50"
+            className="w-full py-3.5 bg-teal-600 hover:bg-teal-700 text-white font-bold text-sm rounded-xl shadow-md transition-all flex items-center justify-center gap-1.5 cursor-pointer disabled:opacity-50"
           >
             <Save className="w-4 h-4" />
             {saving ? 'Saving...' : 'Save Clinical Profile'}

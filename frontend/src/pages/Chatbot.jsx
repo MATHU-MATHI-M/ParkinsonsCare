@@ -124,9 +124,9 @@ const Chatbot = () => {
               <div>
                 <h1 className="text-sm font-bold text-slate-900 font-display flex items-center gap-1.5">
                   ParkinsonCare AI Assistant
-                  <span className="text-[9px] bg-cyanAccent/10 text-cyanAccent border border-cyanAccent/20 px-1.5 py-0.5 rounded uppercase font-semibold">Llama 3.2</span>
+                  <span className="text-[9px] bg-teal-50 text-teal-700 border border-teal-200 px-1.5 py-0.5 rounded uppercase font-bold">Llama 3.2</span>
                 </h1>
-                <p className="text-[10px] text-gray-400">Online Cognitive & Wellness Guide</p>
+                <p className="text-[10px] text-slate-500 font-semibold">Online Cognitive & Wellness Guide</p>
               </div>
             </div>
           </div>
@@ -142,19 +142,19 @@ const Chatbot = () => {
                 className={`flex gap-3 max-w-[85%] ${isAI ? 'self-start' : 'self-end flex-row-reverse ml-auto'}`}
               >
                 {isAI ? (
-                  <div className="w-8 h-8 rounded-lg bg-cyanAccent/10 border border-cyanAccent/20 flex items-center justify-center text-cyanAccent shrink-0">
+                  <div className="w-8 h-8 rounded-xl bg-teal-50 border border-teal-200 flex items-center justify-center text-teal-600 shrink-0 shadow-sm">
                     <Bot className="w-4 h-4" />
                   </div>
                 ) : (
-                  <div className="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center text-white shrink-0 font-bold text-xs uppercase">
+                  <div className="w-8 h-8 rounded-xl bg-teal-600 flex items-center justify-center text-white shrink-0 font-bold text-xs uppercase shadow-sm">
                     Me
                   </div>
                 )}
                 <div
-                  className={`p-3.5 rounded-2xl text-xs leading-relaxed ${
+                  className={`p-3.5 rounded-2xl text-xs leading-relaxed shadow-sm ${
                     isAI
-                      ? 'bg-slate-900/60 border border-white/5 text-gray-200 rounded-tl-none'
-                      : 'bg-gradient-to-r from-cyanAccent to-blueAccent text-slate-900 font-medium rounded-tr-none shadow-md'
+                      ? 'bg-slate-50 border border-slate-200 text-slate-800 rounded-tl-none'
+                      : 'bg-teal-600 text-white font-medium rounded-tr-none'
                   }`}
                 >
                   <p className="whitespace-pre-line">{msg.text}</p>
@@ -164,10 +164,10 @@ const Chatbot = () => {
           })}
           {sending && (
             <div className="flex gap-3 max-w-[85%] self-start">
-              <div className="w-8 h-8 rounded-lg bg-cyanAccent/10 border border-cyanAccent/20 flex items-center justify-center text-cyanAccent shrink-0 animate-pulse">
+              <div className="w-8 h-8 rounded-xl bg-teal-50 border border-teal-200 flex items-center justify-center text-teal-600 shrink-0 animate-pulse shadow-sm">
                 <Bot className="w-4 h-4" />
               </div>
-              <div className="p-3.5 bg-slate-900/60 border border-white/5 rounded-2xl rounded-tl-none text-xs text-gray-500">
+              <div className="p-3.5 bg-slate-50 border border-slate-200 rounded-2xl rounded-tl-none text-xs text-slate-500 font-semibold shadow-sm">
                 AI Agent is thinking...
               </div>
             </div>
@@ -176,24 +176,24 @@ const Chatbot = () => {
         </div>
 
         {/* Disclaimer Warning banner */}
-        <div className="px-4 py-2 bg-yellow-500/5 border-t border-b border-yellow-500/10 flex items-center gap-2 text-[10px] text-yellow-400">
-          <AlertCircle className="w-3.5 h-3.5 shrink-0" />
+        <div className="px-4 py-2.5 bg-amber-50 border-t border-b border-amber-100 flex items-center gap-2 text-[10px] text-amber-800 font-semibold shadow-inner">
+          <AlertCircle className="w-4.5 h-4.5 shrink-0 text-amber-600" />
           <span>This AI assistant provides educational responses and should not substitute professional neurological care.</span>
         </div>
 
         {/* Input form */}
-        <form onSubmit={handleSend} className="p-4 bg-slate-900/80 border-t border-white/5 flex gap-2">
+        <form onSubmit={handleSend} className="p-4 bg-slate-50 border-t border-slate-200 flex gap-2">
           <input
             type="text"
             value={inputText}
             onChange={(e) => setInputText(e.target.value)}
             placeholder="E.g. Explain Parkinson UPDRS ratings..."
-            className="flex-1 bg-slate-950 border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-cyanAccent"
+            className="flex-1 bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-teal-600 font-medium"
           />
           <button
             type="submit"
             disabled={!inputText.trim() || sending}
-            className="p-2.5 bg-cyanAccent hover:bg-cyanAccent/90 disabled:opacity-50 text-slate-900 rounded-xl cursor-pointer transition-all flex items-center justify-center shadow-md glow-cyan"
+            className="p-2.5 bg-teal-600 hover:bg-teal-700 disabled:opacity-50 text-white rounded-xl cursor-pointer transition-all flex items-center justify-center shadow-md"
           >
             <Send className="w-4 h-4" />
           </button>

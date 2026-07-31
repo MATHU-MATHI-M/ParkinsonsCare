@@ -163,17 +163,17 @@ const DualTask = () => {
 
         {/* Setup */}
         {phase === 'setup' && (
-          <div className="glass-card p-8 rounded-2xl text-center space-y-6">
+          <div className="bg-white border border-slate-200 p-8 rounded-2xl text-center space-y-6 shadow-sm">
             <div className="flex justify-center gap-4">
-              <Target className="w-12 h-12 text-roseAccent" />
-              <Brain className="w-12 h-12 text-blueAccent" />
+              <Target className="w-12 h-12 text-rose-600 animate-pulse" />
+              <Brain className="w-12 h-12 text-teal-600" />
             </div>
-            <h2 className="text-lg font-bold">Divided Attention Test</h2>
-            <p className="text-xs text-gray-400 max-w-md mx-auto leading-relaxed">
+            <h2 className="text-lg font-bold text-slate-900 font-display">Divided Attention Test</h2>
+            <p className="text-xs text-slate-500 max-w-md mx-auto leading-relaxed font-medium">
               Circles will appear on the left — tap them before they disappear. Meanwhile, solve math problems on the right.
-              You have <strong className="text-white">45 seconds</strong>. Manage both tasks simultaneously!
+              You have <strong className="text-slate-900 font-bold">45 seconds</strong>. Manage both tasks simultaneously!
             </p>
-            <button onClick={startGame} className="px-8 py-3 bg-cyanAccent text-slate-900 font-bold text-sm rounded-xl cursor-pointer hover:bg-cyanAccent/90 transition-all">
+            <button onClick={startGame} className="px-8 py-3 bg-teal-600 text-white font-bold text-sm rounded-xl cursor-pointer hover:bg-teal-700 transition-all shadow-md">
               Start Challenge
             </button>
           </div>
@@ -183,13 +183,13 @@ const DualTask = () => {
         {phase === 'playing' && (
           <div className="space-y-4">
             {/* Timer bar */}
-            <div className="flex justify-between items-center glass-card px-4 py-2 rounded-xl">
-              <div className="flex gap-4 text-xs">
-                <span className="text-gray-400">Tapped: <strong className="text-emeraldAccent">{tapped}</strong></span>
-                <span className="text-gray-400">Missed: <strong className="text-roseAccent">{missed}</strong></span>
-                <span className="text-gray-400">Math: <strong className="text-blueAccent">{mathCorrect}/{mathTotal}</strong></span>
+            <div className="flex justify-between items-center bg-white border border-slate-200 px-4 py-3 rounded-xl shadow-sm">
+              <div className="flex gap-4 text-xs font-semibold">
+                <span className="text-slate-500">Tapped: <strong className="text-emerald-700 font-bold">{tapped}</strong></span>
+                <span className="text-slate-500">Missed: <strong className="text-rose-600 font-bold">{missed}</strong></span>
+                <span className="text-slate-500">Math: <strong className="text-teal-700 font-bold">{mathCorrect}/{mathTotal}</strong></span>
               </div>
-              <span className={`text-lg font-black tabular-nums ${timeLeft <= 10 ? 'text-roseAccent animate-pulse' : 'text-cyanAccent'}`}>
+              <span className={`text-lg font-black tabular-nums ${timeLeft <= 10 ? 'text-rose-600 animate-pulse' : 'text-teal-600'}`}>
                 {timeLeft}s
               </span>
             </div>
@@ -198,15 +198,15 @@ const DualTask = () => {
               {/* Tap Area */}
               <div
                 ref={gameAreaRef}
-                className="glass-card rounded-2xl relative overflow-hidden"
+                className="bg-white border border-slate-200 rounded-2xl relative overflow-hidden shadow-sm"
                 style={{ height: '360px' }}
               >
-                <div className="absolute top-3 left-3 text-[9px] font-bold uppercase tracking-widest text-roseAccent/60">TAP ZONE</div>
+                <div className="absolute top-3 left-3 text-[10px] font-bold uppercase tracking-widest text-rose-600">TAP ZONE</div>
                 {circles.map(c => (
                   <button
                     key={c.id}
                     onClick={() => handleTap(c.id)}
-                    className="absolute rounded-full bg-gradient-to-br from-roseAccent to-pink-600 shadow-lg shadow-roseAccent/30 cursor-pointer hover:scale-110 transition-transform animate-pulse border-2 border-white/20"
+                    className="absolute rounded-full bg-gradient-to-br from-rose-500 to-rose-600 shadow-md cursor-pointer hover:scale-110 transition-transform animate-pulse border-2 border-white"
                     style={{
                       left: `${c.x}%`,
                       top: `${c.y}%`,
@@ -218,29 +218,29 @@ const DualTask = () => {
               </div>
 
               {/* Math Area */}
-              <div className="glass-card p-6 rounded-2xl flex flex-col items-center justify-center space-y-6" style={{ height: '360px' }}>
-                <div className="text-[9px] font-bold uppercase tracking-widest text-blueAccent/60">MATH ZONE</div>
+              <div className="bg-white border border-slate-200 p-6 rounded-2xl flex flex-col items-center justify-center space-y-6 shadow-sm" style={{ height: '360px' }}>
+                <div className="text-[10px] font-bold uppercase tracking-widest text-teal-700">MATH ZONE</div>
                 {mathQuestion && (
                   <>
-                    <div className="text-3xl font-black text-white">{mathQuestion.text} = ?</div>
+                    <div className="text-3xl font-black text-slate-900 font-display">{mathQuestion.text} = ?</div>
                     <form onSubmit={handleMathSubmit} className="flex gap-2">
                       <input
                         ref={mathRef}
                         type="number"
                         value={mathAnswer}
                         onChange={e => setMathAnswer(e.target.value)}
-                        className="w-24 bg-slate-950 border border-white/10 px-4 py-2.5 text-xl text-center text-white rounded-xl focus:outline-none focus:border-cyanAccent/50 font-mono"
+                        className="w-24 bg-slate-50 border border-slate-200 px-4 py-2.5 text-xl text-center text-slate-900 rounded-xl focus:outline-none focus:border-teal-500 font-mono"
                         autoFocus
                       />
-                      <button type="submit" className="px-4 py-2.5 bg-blueAccent text-white font-bold text-xs rounded-xl cursor-pointer">
+                      <button type="submit" className="px-4 py-2.5 bg-teal-600 text-white font-bold text-xs rounded-xl cursor-pointer hover:bg-teal-700 transition-all">
                         →
                       </button>
                     </form>
                   </>
                 )}
-                <div className="flex gap-6 text-xs text-gray-400">
-                  <span>✓ <strong className="text-emeraldAccent">{mathCorrect}</strong></span>
-                  <span>✗ <strong className="text-roseAccent">{mathWrong}</strong></span>
+                <div className="flex gap-6 text-xs font-semibold text-slate-500">
+                  <span>✓ <strong className="text-emerald-700 font-bold">{mathCorrect}</strong></span>
+                  <span>✗ <strong className="text-rose-600 font-bold">{mathWrong}</strong></span>
                 </div>
               </div>
             </div>
@@ -249,38 +249,38 @@ const DualTask = () => {
 
         {/* Result */}
         {phase === 'result' && score && (
-          <div className="glass-card p-8 rounded-2xl text-center space-y-6">
-            <div className="text-5xl font-black text-white text-glow-cyan">{score.finalScore}</div>
-            <p className="text-xs text-gray-400">Divided Attention Score</p>
+          <div className="bg-white border border-slate-200 p-8 rounded-2xl text-center space-y-6 shadow-sm">
+            <div className="text-5xl font-black text-slate-900 font-display">{score.finalScore}</div>
+            <p className="text-xs text-slate-500 font-semibold uppercase tracking-wider">Divided Attention Score</p>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-lg mx-auto">
-              <div className="p-3 bg-emerald-500/10 border border-emerald-500/20 rounded-xl">
-                <p className="text-2xl font-bold text-emeraldAccent">{score.tapped}</p>
-                <p className="text-[10px] text-gray-400">Circles Tapped</p>
+              <div className="p-3 bg-emerald-50 border border-emerald-200 rounded-xl shadow-sm">
+                <p className="text-2xl font-bold text-emerald-700">{score.tapped}</p>
+                <p className="text-[10px] text-slate-500 font-semibold uppercase">Circles Tapped</p>
               </div>
-              <div className="p-3 bg-red-500/10 border border-red-500/20 rounded-xl">
-                <p className="text-2xl font-bold text-roseAccent">{score.missed}</p>
-                <p className="text-[10px] text-gray-400">Circles Missed</p>
+              <div className="p-3 bg-rose-50 border border-rose-200 rounded-xl shadow-sm">
+                <p className="text-2xl font-bold text-rose-700">{score.missed}</p>
+                <p className="text-[10px] text-slate-500 font-semibold uppercase">Circles Missed</p>
               </div>
-              <div className="p-3 bg-blue-500/10 border border-blue-500/20 rounded-xl">
-                <p className="text-2xl font-bold text-blueAccent">{score.mathCorrect}</p>
-                <p className="text-[10px] text-gray-400">Math Correct</p>
+              <div className="p-3 bg-blue-50 border border-blue-200 rounded-xl shadow-sm">
+                <p className="text-2xl font-bold text-blue-700">{score.mathCorrect}</p>
+                <p className="text-[10px] text-slate-500 font-semibold uppercase">Math Correct</p>
               </div>
-              <div className="p-3 bg-cyanAccent/10 border border-cyanAccent/20 rounded-xl">
-                <p className="text-2xl font-bold text-cyanAccent">{score.tapAccuracy}%</p>
-                <p className="text-[10px] text-gray-400">Tap Accuracy</p>
+              <div className="p-3 bg-teal-50 border border-teal-200 rounded-xl shadow-sm">
+                <p className="text-2xl font-bold text-teal-700">{score.tapAccuracy}%</p>
+                <p className="text-[10px] text-slate-500 font-semibold uppercase">Tap Accuracy</p>
               </div>
             </div>
 
             <div className="flex gap-4 justify-center">
-              <button onClick={() => setPhase('setup')} className="flex items-center gap-1.5 px-5 py-2.5 bg-slate-900 border border-white/10 text-xs font-bold rounded-xl cursor-pointer text-gray-200">
+              <button onClick={() => setPhase('setup')} className="flex items-center gap-1.5 px-5 py-2.5 bg-slate-100 border border-slate-200 text-xs font-bold rounded-xl cursor-pointer text-slate-700 hover:bg-slate-200 transition-all shadow-sm">
                 <RotateCcw className="w-3.5 h-3.5" /> Try Again
               </button>
-              <button onClick={() => navigate('/games')} className="px-5 py-2.5 bg-cyanAccent text-slate-900 text-xs font-bold rounded-xl cursor-pointer hover:bg-cyanAccent/90">
+              <button onClick={() => navigate('/games')} className="px-5 py-2.5 bg-teal-600 text-white text-xs font-bold rounded-xl cursor-pointer hover:bg-teal-700 transition-all shadow-md">
                 Back to Hub
               </button>
             </div>
-            {saving && <p className="text-[10px] text-gray-500 animate-pulse">Saving to MongoDB...</p>}
+            {saving && <p className="text-[10px] text-teal-600 animate-pulse font-semibold">Saving to MongoDB...</p>}
           </div>
         )}
       </div>

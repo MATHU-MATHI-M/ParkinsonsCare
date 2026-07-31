@@ -119,28 +119,28 @@ const WordRecall = () => {
 
         {/* Setup Phase */}
         {phase === 'setup' && (
-          <div className="glass-card p-8 rounded-2xl text-center space-y-6">
-            <Brain className="w-16 h-16 text-emeraldAccent mx-auto" />
-            <h2 className="text-lg font-bold text-white">Select Difficulty</h2>
+          <div className="bg-white border border-slate-200 p-8 rounded-2xl text-center space-y-6 shadow-sm">
+            <Brain className="w-16 h-16 text-teal-600 mx-auto" />
+            <h2 className="text-lg font-bold text-slate-900 font-display">Select Difficulty</h2>
             <div className="flex justify-center gap-4">
               {DIFFICULTY_LEVELS.map((level, idx) => (
                 <button
                   key={idx}
                   onClick={() => setDifficulty(idx)}
-                  className={`px-5 py-3 rounded-xl text-xs font-bold border transition-all cursor-pointer ${
+                  className={`px-5 py-3 rounded-xl text-xs font-bold border transition-all cursor-pointer shadow-sm ${
                     difficulty === idx
-                      ? 'bg-cyanAccent/15 border-cyanAccent text-cyanAccent'
-                      : 'bg-slate-900 border-white/10 text-gray-400 hover:text-white'
+                      ? 'bg-teal-50 border-teal-300 text-teal-700'
+                      : 'bg-white border-slate-200 text-slate-600 hover:bg-slate-50'
                   }`}
                 >
                   {level.name}
-                  <p className="text-[9px] text-gray-500 mt-1">{level.wordCount} words • {level.showTimeSec}s</p>
+                  <p className="text-[10px] text-slate-500 mt-1">{level.wordCount} words • {level.showTimeSec}s</p>
                 </button>
               ))}
             </div>
             <button
               onClick={startGame}
-              className="px-8 py-3 bg-cyanAccent text-slate-900 font-bold text-sm rounded-xl cursor-pointer hover:bg-cyanAccent/90 transition-all"
+              className="px-8 py-3 bg-teal-600 text-white font-bold text-sm rounded-xl cursor-pointer hover:bg-teal-700 transition-all shadow-md"
             >
               Start Test
             </button>
@@ -149,27 +149,27 @@ const WordRecall = () => {
 
         {/* Memorize Phase */}
         {phase === 'memorize' && (
-          <div className="glass-card p-8 rounded-2xl text-center space-y-6">
-            <div className="flex items-center justify-center gap-2 text-cyanAccent">
+          <div className="bg-white border border-slate-200 p-8 rounded-2xl text-center space-y-6 shadow-sm">
+            <div className="flex items-center justify-center gap-2 text-teal-600">
               <Eye className="w-5 h-5" />
               <span className="text-sm font-bold">Memorize these words</span>
             </div>
-            <div className="text-3xl font-black text-roseAccent tabular-nums">{timeLeft}s</div>
+            <div className="text-3xl font-black text-rose-600 tabular-nums">{timeLeft}s</div>
             <div className="grid grid-cols-2 gap-3 max-w-md mx-auto">
               {words.map((word, idx) => (
-                <div key={idx} className="p-4 bg-slate-900/60 border border-cyanAccent/20 rounded-xl text-base font-bold text-white animate-fade-in">
+                <div key={idx} className="p-4 bg-slate-50 border border-slate-200 rounded-xl text-base font-bold text-slate-900 shadow-inner">
                   {word}
                 </div>
               ))}
             </div>
-            <p className="text-[10px] text-gray-500">Words will be hidden when the timer reaches zero</p>
+            <p className="text-[10px] text-slate-500 font-medium">Words will be hidden when the timer reaches zero</p>
           </div>
         )}
 
         {/* Recall Phase */}
         {phase === 'recall' && (
-          <div className="glass-card p-8 rounded-2xl space-y-6">
-            <div className="flex items-center justify-center gap-2 text-roseAccent">
+          <div className="bg-white border border-slate-200 p-8 rounded-2xl space-y-6 shadow-sm">
+            <div className="flex items-center justify-center gap-2 text-rose-600">
               <EyeOff className="w-5 h-5" />
               <span className="text-sm font-bold">Words are now hidden. Type what you remember!</span>
             </div>
@@ -181,29 +181,29 @@ const WordRecall = () => {
                 value={currentInput}
                 onChange={e => setCurrentInput(e.target.value)}
                 placeholder="Type a word and press Enter..."
-                className="flex-1 bg-slate-950 border border-white/10 px-4 py-2.5 text-sm text-white rounded-xl focus:outline-none focus:border-cyanAccent/50"
+                className="flex-1 bg-white border border-slate-200 px-4 py-2.5 text-sm text-slate-900 rounded-xl focus:outline-none focus:border-teal-500"
               />
-              <button type="submit" className="px-4 py-2.5 bg-cyanAccent text-slate-900 font-bold text-xs rounded-xl cursor-pointer">
+              <button type="submit" className="px-4.5 py-2.5 bg-teal-600 text-white font-bold text-xs rounded-xl cursor-pointer hover:bg-teal-700 transition-all">
                 Add
               </button>
             </form>
 
             <div className="flex flex-wrap gap-2 min-h-[40px]">
               {userAnswers.map((ans, idx) => (
-                <span key={idx} className="flex items-center gap-1 px-3 py-1.5 bg-cyanAccent/10 border border-cyanAccent/20 text-cyanAccent text-xs font-bold rounded-lg">
+                <span key={idx} className="flex items-center gap-1 px-3 py-1.5 bg-teal-50 border border-teal-200 text-teal-700 text-xs font-bold rounded-lg shadow-sm">
                   {ans}
-                  <button onClick={() => handleRemoveWord(idx)} className="ml-1 text-gray-400 hover:text-roseAccent cursor-pointer">
+                  <button onClick={() => handleRemoveWord(idx)} className="ml-1 text-slate-400 hover:text-rose-600 cursor-pointer">
                     <XCircle className="w-3 h-3" />
                   </button>
                 </span>
               ))}
             </div>
 
-            <p className="text-xs text-gray-500">{userAnswers.length} / {words.length} words entered</p>
+            <p className="text-xs text-slate-500 font-semibold">{userAnswers.length} / {words.length} words entered</p>
 
             <button
               onClick={handleSubmitRecall}
-              className="w-full py-3 bg-emeraldAccent text-slate-900 font-bold text-sm rounded-xl cursor-pointer hover:bg-emeraldAccent/90 transition-all"
+              className="w-full py-3 bg-teal-600 text-white font-bold text-sm rounded-xl cursor-pointer hover:bg-teal-700 transition-all shadow-md"
             >
               Submit Recall
             </button>
@@ -212,46 +212,46 @@ const WordRecall = () => {
 
         {/* Result Phase */}
         {phase === 'result' && results && (
-          <div className="glass-card p-8 rounded-2xl space-y-6 text-center">
-            <div className="text-5xl font-black text-white text-glow-cyan">{results.score}</div>
-            <p className="text-xs text-gray-400">Memory Recall Score</p>
+          <div className="bg-white border border-slate-200 p-8 rounded-2xl space-y-6 text-center shadow-sm">
+            <div className="text-5xl font-black text-slate-900 font-display">{results.score}</div>
+            <p className="text-xs text-slate-500 font-semibold uppercase tracking-wider">Memory Recall Score</p>
 
             <div className="grid grid-cols-3 gap-4 max-w-sm mx-auto">
-              <div className="p-3 bg-emerald-500/10 border border-emerald-500/20 rounded-xl">
-                <p className="text-2xl font-bold text-emeraldAccent">{results.correct.length}</p>
-                <p className="text-[10px] text-gray-400">Correct</p>
+              <div className="p-3 bg-emerald-50 border border-emerald-200 rounded-xl text-center shadow-sm">
+                <p className="text-2xl font-bold text-emerald-700">{results.correct.length}</p>
+                <p className="text-[10px] text-slate-500 font-semibold uppercase">Correct</p>
               </div>
-              <div className="p-3 bg-yellow-500/10 border border-yellow-500/20 rounded-xl">
-                <p className="text-2xl font-bold text-yellow-400">{results.missed.length}</p>
-                <p className="text-[10px] text-gray-400">Missed</p>
+              <div className="p-3 bg-amber-50 border border-amber-200 rounded-xl text-center shadow-sm">
+                <p className="text-2xl font-bold text-amber-700">{results.missed.length}</p>
+                <p className="text-[10px] text-slate-500 font-semibold uppercase">Missed</p>
               </div>
-              <div className="p-3 bg-red-500/10 border border-red-500/20 rounded-xl">
-                <p className="text-2xl font-bold text-roseAccent">{results.wrong.length}</p>
-                <p className="text-[10px] text-gray-400">Wrong</p>
+              <div className="p-3 bg-rose-50 border border-rose-200 rounded-xl text-center shadow-sm">
+                <p className="text-2xl font-bold text-rose-700">{results.wrong.length}</p>
+                <p className="text-[10px] text-slate-500 font-semibold uppercase">Wrong</p>
               </div>
             </div>
 
             {results.missed.length > 0 && (
-              <div className="text-left bg-slate-900/60 p-4 rounded-xl text-xs">
-                <p className="font-bold text-gray-300 mb-2">Missed Words:</p>
+              <div className="text-left bg-slate-50 border border-slate-200 p-4 rounded-xl text-xs shadow-inner">
+                <p className="font-bold text-slate-700 mb-2 font-display">Missed Words:</p>
                 <div className="flex flex-wrap gap-2">
                   {results.missed.map((w, i) => (
-                    <span key={i} className="px-2 py-1 bg-yellow-500/10 text-yellow-400 rounded text-[10px] font-bold">{w}</span>
+                    <span key={i} className="px-2.5 py-1 bg-amber-50 border border-amber-200 text-amber-700 rounded-lg text-[10px] font-bold shadow-sm">{w}</span>
                   ))}
                 </div>
               </div>
             )}
 
             <div className="flex gap-4 justify-center">
-              <button onClick={() => { setPhase('setup'); }} className="px-5 py-2.5 bg-slate-900 border border-white/10 text-xs font-bold rounded-xl cursor-pointer text-gray-200 hover:border-cyanAccent/20">
+              <button onClick={() => { setPhase('setup'); }} className="px-5 py-2.5 bg-slate-100 border border-slate-200 text-xs font-bold rounded-xl cursor-pointer text-slate-700 hover:bg-slate-200 transition-all shadow-sm">
                 Try Again
               </button>
-              <button onClick={() => navigate('/games')} className="px-5 py-2.5 bg-cyanAccent text-slate-900 text-xs font-bold rounded-xl cursor-pointer hover:bg-cyanAccent/90">
+              <button onClick={() => navigate('/games')} className="px-5 py-2.5 bg-teal-600 text-white text-xs font-bold rounded-xl cursor-pointer hover:bg-teal-700 transition-all shadow-md">
                 Back to Hub
               </button>
             </div>
 
-            {saving && <p className="text-[10px] text-gray-500 animate-pulse">Saving to MongoDB...</p>}
+            {saving && <p className="text-[10px] text-teal-600 animate-pulse font-semibold">Saving to MongoDB...</p>}
           </div>
         )}
       </div>

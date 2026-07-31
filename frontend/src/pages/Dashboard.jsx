@@ -161,113 +161,113 @@ const Dashboard = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             
             {/* Onboarding block */}
-            <div className="lg:col-span-2 glass-card p-8 rounded-2xl border border-cyanAccent/15 flex flex-col justify-center relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-cyanAccent/5 rounded-full blur-3xl pointer-events-none" />
+            <div className="lg:col-span-2 bg-white p-8 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-center relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-teal-50/50 rounded-full blur-3xl pointer-events-none" />
               
-              <Info className="w-10 h-10 text-cyanAccent mb-4 animate-pulse" />
-              <h1 className="text-2xl font-bold text-white mb-2">Welcome to ParkinsonCare AI</h1>
-              <p className="text-xs text-gray-400 leading-relaxed mb-6 max-w-xl">
-                This platform tracks kinetic tremors, speech clearity, and cognitive indices. Complete your profile details and baseline tests to unlock progress charts and clinician assessments.
+              <Info className="w-10 h-10 text-teal-600 mb-4" />
+              <h1 className="text-2xl font-bold text-slate-900 mb-2 font-display">Welcome to ParkinsonCare AI</h1>
+              <p className="text-xs text-slate-500 leading-relaxed mb-6 max-w-xl font-medium">
+                This platform tracks kinetic tremors, speech clarity, and cognitive indices. Complete your profile details and baseline tests to unlock progress charts and clinician assessments.
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <button
                   onClick={() => navigate('/settings')}
-                  className="p-4 bg-slate-900/60 border border-white/5 hover:border-cyanAccent/30 rounded-xl text-left cursor-pointer transition-all"
+                  className="p-4 bg-slate-50 border border-slate-200 hover:border-teal-300 hover:bg-white rounded-xl text-left cursor-pointer transition-all shadow-sm group"
                 >
-                  <h4 className="text-sm font-semibold text-cyanAccent mb-1">1. Update Clinical Profile</h4>
-                  <p className="text-[11px] text-gray-400 leading-relaxed">Save age, height, weight, and link assigned doctor and caregivers.</p>
+                  <h4 className="text-sm font-bold text-teal-700 mb-1 group-hover:text-teal-800 font-display">1. Update Clinical Profile</h4>
+                  <p className="text-[11px] text-slate-500 leading-relaxed font-medium">Save age, height, weight, and link assigned doctor and caregivers.</p>
                 </button>
                 <button
                   onClick={() => navigate('/questionnaire')}
-                  className="p-4 bg-slate-900/60 border border-white/5 hover:border-cyanAccent/30 rounded-xl text-left cursor-pointer transition-all"
+                  className="p-4 bg-slate-50 border border-slate-200 hover:border-teal-300 hover:bg-white rounded-xl text-left cursor-pointer transition-all shadow-sm group"
                 >
-                  <h4 className="text-sm font-semibold text-emeraldAccent mb-1">2. Daily Questionnaire</h4>
-                  <p className="text-[11px] text-gray-400 leading-relaxed">Log sleep, mood, fatigue, and digestive logs for Non-Motor rating.</p>
+                  <h4 className="text-sm font-bold text-emerald-700 mb-1 group-hover:text-emerald-800 font-display">2. Daily Questionnaire</h4>
+                  <p className="text-[11px] text-slate-500 leading-relaxed font-medium">Log sleep, mood, fatigue, and digestive logs for Non-Motor rating.</p>
                 </button>
                 <button
                   onClick={() => navigate('/game/spiral')}
-                  className="p-4 bg-slate-900/60 border border-white/5 hover:border-cyanAccent/30 rounded-xl text-left cursor-pointer transition-all"
+                  className="p-4 bg-slate-50 border border-slate-200 hover:border-teal-300 hover:bg-white rounded-xl text-left cursor-pointer transition-all shadow-sm group"
                 >
-                  <h4 className="text-sm font-semibold text-blueAccent mb-1">3. Spiral Tracing Challenge</h4>
-                  <p className="text-[11px] text-gray-400 leading-relaxed">Trace Archimedean shapes on canvas to log baseline kinetic tremor metrics.</p>
+                  <h4 className="text-sm font-bold text-sky-700 mb-1 group-hover:text-sky-800 font-display">3. Spiral Tracing Challenge</h4>
+                  <p className="text-[11px] text-slate-500 leading-relaxed font-medium">Trace Archimedean shapes on canvas to log baseline kinetic tremor metrics.</p>
                 </button>
                 <button
                   onClick={() => navigate('/game/memory')}
-                  className="p-4 bg-slate-900/60 border border-white/5 hover:border-cyanAccent/30 rounded-xl text-left cursor-pointer transition-all"
+                  className="p-4 bg-slate-50 border border-slate-200 hover:border-teal-300 hover:bg-white rounded-xl text-left cursor-pointer transition-all shadow-sm group"
                 >
-                  <h4 className="text-sm font-semibold text-purple-400 mb-1">4. Cognitive Match Challenge</h4>
-                  <p className="text-[11px] text-gray-400 leading-relaxed">Flip matching cards to check baseline recall speed and errors.</p>
+                  <h4 className="text-sm font-bold text-purple-700 mb-1 group-hover:text-purple-800 font-display">4. Cognitive Match Challenge</h4>
+                  <p className="text-[11px] text-slate-500 leading-relaxed font-medium">Flip matching cards to check baseline recall speed and errors.</p>
                 </button>
               </div>
             </div>
 
             {/* Right: Empty Medication Schedule */}
             <div className="lg:col-span-1 flex flex-col gap-6">
-              <div className="glass-card p-6 rounded-2xl">
+              <div className="bg-white border border-slate-200 p-6 rounded-2xl shadow-sm">
                 <div className="flex justify-between items-center mb-4">
-                  <h3 className="text-base font-bold text-white">Medication Reminders</h3>
+                  <h3 className="text-base font-bold text-slate-900 font-display">Medication Reminders</h3>
                   <button
                     onClick={() => setShowAddMed(!showAddMed)}
-                    className="p-1 rounded-lg bg-cyanAccent/10 border border-cyanAccent/20 hover:bg-cyanAccent/20 text-cyanAccent cursor-pointer"
+                    className="p-1.5 rounded-xl bg-teal-50 border border-teal-200 hover:bg-teal-100 text-teal-700 cursor-pointer shadow-sm"
                   >
                     {showAddMed ? <X className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
                   </button>
                 </div>
 
                 {showAddMed && (
-                  <form onSubmit={handleAddMedication} className="bg-slate-900/50 border border-white/5 p-4 rounded-xl mb-4 space-y-3">
+                  <form onSubmit={handleAddMedication} className="bg-slate-50 border border-slate-200 p-4 rounded-xl mb-4 space-y-3 shadow-inner">
                     <div>
-                      <label className="block text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-1">Medicine Name</label>
+                      <label className="block text-[10px] font-bold text-slate-700 uppercase tracking-widest mb-1">Medicine Name</label>
                       <input
                         type="text"
                         required
                         value={newMed.name}
                         onChange={(e) => setNewMed({ ...newMed, name: e.target.value })}
                         placeholder="E.g. Sinemet"
-                        className="w-full bg-slate-950 border border-white/10 px-2.5 py-1.5 text-xs text-white focus:outline-none focus:border-cyanAccent"
+                        className="w-full bg-white border border-slate-200 px-3 py-1.5 text-xs text-slate-900 rounded-lg focus:outline-none focus:border-teal-600 font-medium"
                       />
                     </div>
                     <div className="grid grid-cols-2 gap-2">
                       <div>
-                        <label className="block text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-1">Dosage</label>
+                        <label className="block text-[10px] font-bold text-slate-700 uppercase tracking-widest mb-1">Dosage</label>
                         <input
                           type="text"
                           value={newMed.dosage}
                           onChange={(e) => setNewMed({ ...newMed, dosage: e.target.value })}
                           placeholder="25/100 mg"
-                          className="w-full bg-slate-950 border border-white/10 px-2.5 py-1.5 text-xs text-white focus:outline-none focus:border-cyanAccent"
+                          className="w-full bg-white border border-slate-200 px-3 py-1.5 text-xs text-slate-900 rounded-lg focus:outline-none focus:border-teal-600 font-medium"
                         />
                       </div>
                       <div>
-                        <label className="block text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-1">Time (24h)</label>
+                        <label className="block text-[10px] font-bold text-slate-700 uppercase tracking-widest mb-1">Time (24h)</label>
                         <input
                           type="text"
                           required
                           value={newMed.time}
                           onChange={(e) => setNewMed({ ...newMed, time: e.target.value })}
                           placeholder="08:00"
-                          className="w-full bg-slate-950 border border-white/10 px-2.5 py-1.5 text-xs text-white focus:outline-none focus:border-cyanAccent"
+                          className="w-full bg-white border border-slate-200 px-3 py-1.5 text-xs text-slate-900 rounded-lg focus:outline-none focus:border-teal-600 font-medium"
                         />
                       </div>
                     </div>
                     <div className="grid grid-cols-2 gap-2">
                       <div>
-                        <label className="block text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-1">Phone Number</label>
+                        <label className="block text-[10px] font-bold text-slate-700 uppercase tracking-widest mb-1">Phone Number</label>
                         <input
                           type="text"
                           value={newMed.phoneNumber}
                           onChange={(e) => setNewMed({ ...newMed, phoneNumber: e.target.value })}
                           placeholder="+15550199"
-                          className="w-full bg-slate-950 border border-white/10 px-2.5 py-1.5 text-xs text-white focus:outline-none focus:border-cyanAccent"
+                          className="w-full bg-white border border-slate-200 px-3 py-1.5 text-xs text-slate-900 rounded-lg focus:outline-none focus:border-teal-600 font-medium"
                         />
                       </div>
                       <div>
-                        <label className="block text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-1">Reminder Type</label>
+                        <label className="block text-[10px] font-bold text-slate-700 uppercase tracking-widest mb-1">Reminder Type</label>
                         <select
                           value={newMed.reminderType}
                           onChange={(e) => setNewMed({ ...newMed, reminderType: e.target.value })}
-                          className="w-full bg-slate-950 border border-white/10 px-2.5 py-1.5 text-xs text-white focus:outline-none focus:border-cyanAccent"
+                          className="w-full bg-white border border-slate-200 px-3 py-1.5 text-xs text-slate-900 rounded-lg focus:outline-none focus:border-teal-600 font-semibold"
                         >
                           <option value="Email">Email</option>
                           <option value="Voice Call">Voice Call</option>
@@ -276,7 +276,7 @@ const Dashboard = () => {
                     </div>
                     <button
                       type="submit"
-                      className="w-full py-1.5 bg-cyanAccent hover:bg-cyanAccent/90 text-slate-900 font-bold text-xs rounded transition-all cursor-pointer"
+                      className="w-full py-2 bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs rounded-xl shadow-sm transition-all cursor-pointer"
                     >
                       Save Prescription
                     </button>
@@ -284,19 +284,19 @@ const Dashboard = () => {
                 )}
 
                 {medications.length === 0 ? (
-                  <p className="text-xs text-gray-500 text-center py-8">Your medication schedules are empty. Click the plus button to configure prescriptions.</p>
+                  <p className="text-xs text-slate-400 text-center py-8 font-medium">Your medication schedules are empty. Click the plus button to configure prescriptions.</p>
                 ) : (
                   <div className="space-y-3">
                     {medications.map(med => (
-                      <div key={med._id} className="p-3 bg-slate-900/40 border border-white/5 rounded-xl">
+                      <div key={med._id} className="p-3 bg-slate-50 border border-slate-200 rounded-xl shadow-sm">
                         <div className="flex justify-between items-start">
                           <div>
-                            <h4 className="text-sm font-semibold text-white">{med.medicineName}</h4>
-                            <p className="text-[10px] text-gray-400">{med.dosage} • {med.time}</p>
+                            <h4 className="text-sm font-bold text-slate-900 font-display">{med.medicineName}</h4>
+                            <p className="text-[10px] text-slate-500 font-semibold">{med.dosage} • {med.time}</p>
                           </div>
                           <button
                             onClick={() => handleDeleteMedication(med._id)}
-                            className="text-gray-500 hover:text-roseAccent p-1 cursor-pointer"
+                            className="text-slate-400 hover:text-rose-600 p-1 cursor-pointer"
                           >
                             <X className="w-3.5 h-3.5" />
                           </button>
@@ -315,17 +315,17 @@ const Dashboard = () => {
             
             {/* Left: Wellness Circle & Breakdown */}
             <div className="lg:col-span-1 flex flex-col gap-6">
-              <div className="glass-card p-6 rounded-2xl flex flex-col items-center text-center relative overflow-hidden">
-                <h3 className="text-sm font-bold text-gray-300 uppercase tracking-widest mb-6">Aggregated Wellness</h3>
+              <div className="bg-white border border-slate-200 p-6 rounded-2xl flex flex-col items-center text-center relative overflow-hidden shadow-sm">
+                <h3 className="text-sm font-bold text-slate-800 uppercase tracking-widest mb-6 font-display">Aggregated Wellness</h3>
                 
                 <div className="relative w-48 h-48 flex items-center justify-center mb-6">
                   <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
-                    <circle cx="50" cy="50" r="40" className="stroke-slate-800" strokeWidth="6" fill="transparent" />
+                    <circle cx="50" cy="50" r="40" className="stroke-slate-100" strokeWidth="6" fill="transparent" />
                     <circle
                       cx="50"
                       cy="50"
                       r="40"
-                      className="stroke-cyanAccent transition-all duration-1000 ease-out"
+                      className="stroke-teal-600 transition-all duration-1000 ease-out"
                       strokeWidth="8"
                       fill="transparent"
                       strokeDasharray="251.2"
@@ -334,54 +334,54 @@ const Dashboard = () => {
                     />
                   </svg>
                   <div className="absolute flex flex-col items-center">
-                    <span className="text-5xl font-black text-white text-glow-cyan">{stats.wellnessScore}</span>
-                    <span className="text-[10px] text-cyanAccent uppercase tracking-widest font-bold mt-1">Index</span>
+                    <span className="text-5xl font-black text-slate-900 font-display">{stats.wellnessScore}</span>
+                    <span className="text-[10px] text-teal-700 uppercase tracking-widest font-bold mt-1">Index</span>
                   </div>
                 </div>
 
                 <div className="mb-4">
-                  <span className="text-xs text-gray-400">Risk Assessment: </span>
+                  <span className="text-xs text-slate-500 font-semibold">Risk Assessment: </span>
                   <span className={`text-xs font-bold uppercase px-2.5 py-1 rounded-full border ${
-                    stats.riskCategory === 'High' ? 'bg-red-500/10 text-roseAccent border-red-500/20' :
-                    stats.riskCategory === 'Moderate' ? 'bg-yellow-500/10 text-yellow-400 border-yellow-500/20' :
-                    'bg-emerald-500/10 text-emeraldAccent border-emerald-500/20'
+                    stats.riskCategory === 'High' ? 'bg-rose-50 text-rose-700 border-rose-200' :
+                    stats.riskCategory === 'Moderate' ? 'bg-amber-50 text-amber-700 border-amber-200' :
+                    'bg-emerald-50 text-emerald-700 border-emerald-200'
                   }`}>
                     {stats.riskCategory} Risk
                   </span>
                 </div>
 
-                <div className="bg-slate-900/60 border border-white/5 rounded-xl p-4 text-xs text-gray-300 text-left leading-relaxed w-full">
-                  <p className="font-semibold text-cyanAccent mb-1">AI Recommendation:</p>
+                <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 text-xs text-slate-700 text-left leading-relaxed w-full">
+                  <p className="font-bold text-teal-700 mb-1">AI Recommendation:</p>
                   {stats.recommendation}
                 </div>
               </div>
 
               {/* Core sub-scores */}
-              <div className="glass-card p-6 rounded-2xl">
-                <h3 className="text-xs font-bold uppercase tracking-wider text-gray-400 mb-4 font-mono">Biomarker breakdown</h3>
+              <div className="bg-white border border-slate-200 p-6 rounded-2xl shadow-sm">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-4 font-display">Biomarker breakdown</h3>
                 <div className="grid grid-cols-2 gap-4">
                   {stats.scores?.nonMotorScore !== undefined && (
-                    <div className="p-3 bg-slate-900/40 border border-white/5 rounded-xl text-center">
-                      <p className="text-[10px] text-gray-400">Non-Motor</p>
-                      <p className="text-xl font-bold text-emeraldAccent mt-1">{stats.scores.nonMotorScore}</p>
+                    <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl text-center">
+                      <p className="text-[10px] text-slate-500 font-bold">Non-Motor</p>
+                      <p className="text-xl font-bold text-emerald-700 mt-1">{stats.scores.nonMotorScore}</p>
                     </div>
                   )}
                   {stats.scores?.cognitiveScore !== undefined && (
-                    <div className="p-3 bg-slate-900/40 border border-white/5 rounded-xl text-center">
-                      <p className="text-[10px] text-gray-400">Cognitive</p>
-                      <p className="text-xl font-bold text-blueAccent mt-1">{stats.scores.cognitiveScore}</p>
+                    <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl text-center">
+                      <p className="text-[10px] text-slate-500 font-bold">Cognitive</p>
+                      <p className="text-xl font-bold text-blue-700 mt-1">{stats.scores.cognitiveScore}</p>
                     </div>
                   )}
                   {stats.scores?.motorScore !== undefined && (
-                    <div className="p-3 bg-slate-900/40 border border-white/5 rounded-xl text-center">
-                      <p className="text-[10px] text-gray-400">Fine Motor</p>
-                      <p className="text-xl font-bold text-cyanAccent mt-1">{stats.scores.motorScore}</p>
+                    <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl text-center">
+                      <p className="text-[10px] text-slate-500 font-bold">Fine Motor</p>
+                      <p className="text-xl font-bold text-teal-700 mt-1">{stats.scores.motorScore}</p>
                     </div>
                   )}
                   {stats.scores?.voiceScore !== undefined && (
-                    <div className="p-3 bg-slate-900/40 border border-white/5 rounded-xl text-center">
-                      <p className="text-[10px] text-gray-400">Acoustic</p>
-                      <p className="text-xl font-bold text-purple-400 mt-1">{stats.scores.voiceScore}</p>
+                    <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl text-center">
+                      <p className="text-[10px] text-slate-500 font-bold">Acoustic</p>
+                      <p className="text-xl font-bold text-purple-700 mt-1">{stats.scores.voiceScore}</p>
                     </div>
                   )}
                 </div>
@@ -390,69 +390,69 @@ const Dashboard = () => {
 
             {/* Middle: Active Tasks Checklist */}
             <div className="lg:col-span-1 flex flex-col gap-6">
-              <div className="glass-card p-6 rounded-2xl">
-                <h3 className="text-base font-semibold text-gray-300 mb-4">Diagnostics Checklist</h3>
+              <div className="bg-white border border-slate-200 p-6 rounded-2xl shadow-sm">
+                <h3 className="text-base font-bold text-slate-800 font-display mb-4">Diagnostics Checklist</h3>
                 <div className="space-y-3">
-                  <div className="flex items-center justify-between p-3.5 bg-slate-900/40 border border-white/5 rounded-xl">
+                  <div className="flex items-center justify-between p-3.5 bg-slate-50 border border-slate-200 rounded-xl">
                     <div className="flex items-center gap-3">
                       {stats.assessmentsCompletedToday?.questionnaire ? (
-                        <CheckCircle className="w-5 h-5 text-emeraldAccent" />
+                        <CheckCircle className="w-5 h-5 text-emerald-600" />
                       ) : (
-                        <Clock className="w-5 h-5 text-gray-500" />
+                        <Clock className="w-5 h-5 text-slate-400" />
                       )}
                       <div>
-                        <h4 className="text-sm font-semibold text-white">Daily Symptoms Survey</h4>
-                        <p className="text-[10px] text-gray-400">Log mood, fatigue levels</p>
+                        <h4 className="text-sm font-bold text-slate-900 font-display">Daily Symptoms Survey</h4>
+                        <p className="text-[10px] text-slate-500 font-medium">Log mood, fatigue levels</p>
                       </div>
                     </div>
                     <button
                       onClick={() => navigate('/questionnaire')}
                       className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-                        stats.assessmentsCompletedToday?.questionnaire ? 'bg-white/10 text-gray-300' : 'bg-cyanAccent text-slate-900'
+                        stats.assessmentsCompletedToday?.questionnaire ? 'bg-slate-100 text-slate-700 hover:bg-slate-200' : 'bg-teal-600 hover:bg-teal-700 text-white shadow-sm'
                       }`}
                     >
                       {stats.assessmentsCompletedToday?.questionnaire ? 'Retake' : 'Start'}
                     </button>
                   </div>
 
-                  <div className="flex items-center justify-between p-3.5 bg-slate-900/40 border border-white/5 rounded-xl">
+                  <div className="flex items-center justify-between p-3.5 bg-slate-50 border border-slate-200 rounded-xl">
                     <div className="flex items-center gap-3">
                       {stats.assessmentsCompletedToday?.games ? (
-                        <CheckCircle className="w-5 h-5 text-emeraldAccent" />
+                        <CheckCircle className="w-5 h-5 text-emerald-600" />
                       ) : (
-                        <Clock className="w-5 h-5 text-gray-500" />
+                        <Clock className="w-5 h-5 text-slate-400" />
                       )}
                       <div>
-                        <h4 className="text-sm font-semibold text-white">Memory card challenge</h4>
-                        <p className="text-[10px] text-gray-400">Check accuracy metrics</p>
+                        <h4 className="text-sm font-bold text-slate-900 font-display">Memory card challenge</h4>
+                        <p className="text-[10px] text-slate-500 font-medium">Check accuracy metrics</p>
                       </div>
                     </div>
                     <button
                       onClick={() => navigate('/game/memory')}
                       className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-                        stats.assessmentsCompletedToday?.games ? 'bg-white/10 text-gray-300' : 'bg-cyanAccent text-slate-900'
+                        stats.assessmentsCompletedToday?.games ? 'bg-slate-100 text-slate-700 hover:bg-slate-200' : 'bg-teal-600 hover:bg-teal-700 text-white shadow-sm'
                       }`}
                     >
                       {stats.assessmentsCompletedToday?.games ? 'Replay' : 'Start'}
                     </button>
                   </div>
 
-                  <div className="flex items-center justify-between p-3.5 bg-slate-900/40 border border-white/5 rounded-xl">
+                  <div className="flex items-center justify-between p-3.5 bg-slate-50 border border-slate-200 rounded-xl">
                     <div className="flex items-center gap-3">
                       {stats.assessmentsCompletedToday?.motor ? (
-                        <CheckCircle className="w-5 h-5 text-emeraldAccent" />
+                        <CheckCircle className="w-5 h-5 text-emerald-600" />
                       ) : (
-                        <Clock className="w-5 h-5 text-gray-500" />
+                        <Clock className="w-5 h-5 text-slate-400" />
                       )}
                       <div>
-                        <h4 className="text-sm font-semibold text-white">Spiral Drawing assessment</h4>
-                        <p className="text-[10px] text-gray-400">Trace coordinates guide</p>
+                        <h4 className="text-sm font-bold text-slate-900 font-display">Spiral Drawing assessment</h4>
+                        <p className="text-[10px] text-slate-500 font-medium">Trace coordinates guide</p>
                       </div>
                     </div>
                     <button
                       onClick={() => navigate('/game/spiral')}
                       className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-                        stats.assessmentsCompletedToday?.motor ? 'bg-white/10 text-gray-300' : 'bg-cyanAccent text-slate-900'
+                        stats.assessmentsCompletedToday?.motor ? 'bg-slate-100 text-slate-700 hover:bg-slate-200' : 'bg-teal-600 hover:bg-teal-700 text-white shadow-sm'
                       }`}
                     >
                       {stats.assessmentsCompletedToday?.motor ? 'Redraw' : 'Start'}
@@ -463,28 +463,28 @@ const Dashboard = () => {
 
               {/* Twilio call outcome logs */}
               {callLogs.length > 0 && (
-                <div className="glass-card p-6 rounded-2xl">
-                  <h3 className="text-sm font-bold text-white flex items-center gap-2 mb-4">
-                    <History className="w-4 h-4 text-cyanAccent" />
+                <div className="bg-white border border-slate-200 p-6 rounded-2xl shadow-sm">
+                  <h3 className="text-sm font-bold text-slate-900 font-display flex items-center gap-2 mb-4">
+                    <History className="w-4 h-4 text-teal-600" />
                     Medication Call Status logs
                   </h3>
                   <div className="space-y-3 max-h-48 overflow-y-auto custom-scrollbar">
                     {callLogs.map((log) => (
-                      <div key={log._id} className="p-2.5 bg-slate-950 border border-white/5 rounded-lg flex justify-between items-center text-xs">
+                      <div key={log._id} className="p-2.5 bg-slate-50 border border-slate-200 rounded-xl flex justify-between items-center text-xs shadow-inner">
                         <div>
-                          <p className="font-semibold text-white">{log.medicineName}</p>
-                          <p className="text-[9px] text-gray-500 mt-0.5">{new Date(log.timestamp).toLocaleTimeString()}</p>
+                          <p className="font-bold text-slate-900 font-display">{log.medicineName}</p>
+                          <p className="text-[10px] text-slate-500 font-medium mt-0.5">{new Date(log.timestamp).toLocaleTimeString()}</p>
                         </div>
                         <div className="text-right">
                           <span className={`px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider ${
-                            log.callStatus === 'Answered' ? 'bg-emerald-500/10 text-emeraldAccent' :
-                            log.callStatus === 'Missed' ? 'bg-yellow-500/10 text-yellow-400' :
-                            'bg-red-500/10 text-roseAccent'
+                            log.callStatus === 'Answered' ? 'bg-emerald-50 text-emerald-700 border border-emerald-200' :
+                            log.callStatus === 'Missed' ? 'bg-amber-50 text-amber-700 border border-amber-200' :
+                            'bg-rose-50 text-rose-700 border border-rose-200'
                           }`}>
                             {log.callStatus}
                           </span>
                           {log.retryCount > 0 && (
-                            <p className="text-[9px] text-gray-500 mt-0.5">Retries: {log.retryCount}</p>
+                            <p className="text-[9px] text-slate-400 mt-0.5 font-medium">Retries: {log.retryCount}</p>
                           )}
                         </div>
                       </div>
@@ -496,70 +496,70 @@ const Dashboard = () => {
 
             {/* Right: Active Medication Schedules */}
             <div className="lg:col-span-1 flex flex-col gap-6">
-              <div className="glass-card p-6 rounded-2xl">
+              <div className="bg-white border border-slate-200 p-6 rounded-2xl shadow-sm">
                 <div className="flex justify-between items-center mb-4">
-                  <h3 className="text-base font-semibold text-gray-300">Medication Reminders</h3>
+                  <h3 className="text-base font-bold text-slate-800 font-display">Medication Reminders</h3>
                   <button
                     onClick={() => setShowAddMed(!showAddMed)}
-                    className="p-1 rounded-lg bg-cyanAccent/10 border border-cyanAccent/20 hover:bg-cyanAccent/20 text-cyanAccent cursor-pointer"
+                    className="p-1.5 rounded-xl bg-teal-50 border border-teal-200 hover:bg-teal-100 text-teal-700 cursor-pointer shadow-sm"
                   >
                     {showAddMed ? <X className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
                   </button>
                 </div>
 
                 {showAddMed && (
-                  <form onSubmit={handleAddMedication} className="bg-slate-900/50 border border-white/5 p-4 rounded-xl mb-4 space-y-3">
+                  <form onSubmit={handleAddMedication} className="bg-slate-50 border border-slate-200 p-4 rounded-xl mb-4 space-y-3 shadow-inner">
                     <div>
-                      <label className="block text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-1">Medicine Name</label>
+                      <label className="block text-[10px] font-bold text-slate-700 uppercase tracking-widest mb-1">Medicine Name</label>
                       <input
                         type="text"
                         required
                         value={newMed.name}
                         onChange={(e) => setNewMed({ ...newMed, name: e.target.value })}
                         placeholder="E.g. Sinemet"
-                        className="w-full bg-slate-950 border border-white/10 px-2.5 py-1.5 text-xs text-white focus:outline-none"
+                        className="w-full bg-white border border-slate-200 px-3 py-1.5 text-xs text-slate-900 rounded-lg focus:outline-none"
                       />
                     </div>
                     <div className="grid grid-cols-2 gap-2">
                       <div>
-                        <label className="block text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-1">Dosage</label>
+                        <label className="block text-[10px] font-bold text-slate-700 uppercase tracking-widest mb-1">Dosage</label>
                         <input
                           type="text"
                           value={newMed.dosage}
                           onChange={(e) => setNewMed({ ...newMed, dosage: e.target.value })}
                           placeholder="25/100 mg"
-                          className="w-full bg-slate-950 border border-white/10 px-2.5 py-1.5 text-xs text-white focus:outline-none"
+                          className="w-full bg-white border border-slate-200 px-3 py-1.5 text-xs text-slate-900 rounded-lg focus:outline-none"
                         />
                       </div>
                       <div>
-                        <label className="block text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-1">Time (24h)</label>
+                        <label className="block text-[10px] font-bold text-slate-700 uppercase tracking-widest mb-1">Time (24h)</label>
                         <input
                           type="text"
                           required
                           value={newMed.time}
                           onChange={(e) => setNewMed({ ...newMed, time: e.target.value })}
                           placeholder="08:00"
-                          className="w-full bg-slate-950 border border-white/10 px-2.5 py-1.5 text-xs text-white focus:outline-none"
+                          className="w-full bg-white border border-slate-200 px-3 py-1.5 text-xs text-slate-900 rounded-lg focus:outline-none"
                         />
                       </div>
                     </div>
                     <div className="grid grid-cols-2 gap-2">
                       <div>
-                        <label className="block text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-1">Phone Number</label>
+                        <label className="block text-[10px] font-bold text-slate-700 uppercase tracking-widest mb-1">Phone Number</label>
                         <input
                           type="text"
                           value={newMed.phoneNumber}
                           onChange={(e) => setNewMed({ ...newMed, phoneNumber: e.target.value })}
                           placeholder="+15550199"
-                          className="w-full bg-slate-950 border border-white/10 px-2.5 py-1.5 text-xs text-white focus:outline-none"
+                          className="w-full bg-white border border-slate-200 px-3 py-1.5 text-xs text-slate-900 rounded-lg focus:outline-none"
                         />
                       </div>
                       <div>
-                        <label className="block text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-1">Reminder Type</label>
+                        <label className="block text-[10px] font-bold text-slate-700 uppercase tracking-widest mb-1">Reminder Type</label>
                         <select
                           value={newMed.reminderType}
                           onChange={(e) => setNewMed({ ...newMed, reminderType: e.target.value })}
-                          className="w-full bg-slate-950 border border-white/10 px-2.5 py-1.5 text-xs text-white focus:outline-none"
+                          className="w-full bg-white border border-slate-200 px-3 py-1.5 text-xs text-slate-900 rounded-lg focus:outline-none"
                         >
                           <option value="Email">Email</option>
                           <option value="Voice Call">Voice Call</option>
@@ -568,7 +568,7 @@ const Dashboard = () => {
                     </div>
                     <button
                       type="submit"
-                      className="w-full py-1.5 bg-cyanAccent hover:bg-cyanAccent/90 text-slate-900 font-bold text-xs rounded transition-all cursor-pointer"
+                      className="w-full py-2 bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs rounded-xl shadow-sm transition-all cursor-pointer"
                     >
                       Save Prescription
                     </button>
@@ -579,30 +579,30 @@ const Dashboard = () => {
                   {medications.map((med) => {
                     const taken = med.takenHistory?.some(h => h.date === todayStr);
                     return (
-                      <div key={med._id} className="p-3 bg-slate-900/40 border border-white/5 rounded-xl space-y-3">
+                      <div key={med._id} className="p-3.5 bg-slate-50 border border-slate-200 rounded-xl space-y-3 shadow-sm">
                         <div className="flex justify-between items-start">
                           <div>
-                            <h4 className="text-sm font-semibold text-white flex items-center gap-1.5">
-                              <Pill className="w-4 h-4 text-cyanAccent" />
+                            <h4 className="text-sm font-bold text-slate-900 font-display flex items-center gap-1.5">
+                              <Pill className="w-4 h-4 text-teal-600" />
                               {med.medicineName}
                             </h4>
-                            <p className="text-[10px] text-gray-400 mt-0.5">{med.dosage} • {med.time}</p>
+                            <p className="text-[10px] text-slate-500 font-semibold mt-0.5">{med.dosage} • {med.time}</p>
                           </div>
                           <button
                             onClick={() => handleDeleteMedication(med._id)}
-                            className="text-gray-500 hover:text-roseAccent p-1 cursor-pointer"
+                            className="text-slate-400 hover:text-rose-600 p-1 cursor-pointer"
                           >
                             <X className="w-3.5 h-3.5" />
                           </button>
                         </div>
 
-                        <div className="flex gap-2 pt-2 border-t border-white/5 justify-between items-center">
+                        <div className="flex gap-2 pt-2.5 border-t border-slate-200 justify-between items-center">
                           <button
                             onClick={() => handleToggleMed(med._id)}
-                            className={`flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-bold border transition-all cursor-pointer ${
+                            className={`flex items-center gap-1 px-3 py-1 rounded-xl text-[10px] font-bold border transition-all cursor-pointer ${
                               taken
-                                ? 'bg-emerald-500/10 text-emeraldAccent border-emerald-500/20'
-                                : 'bg-slate-900 text-gray-400 border-white/10'
+                                ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
+                                : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-100'
                             }`}
                           >
                             {taken ? '✓ Taken Today' : 'Mark Taken'}
@@ -611,10 +611,10 @@ const Dashboard = () => {
                           {med.reminderType === 'Voice Call' && (
                             <button
                               onClick={() => triggerVoiceReminder(med._id)}
-                              className="flex items-center gap-1 px-2.5 py-1 bg-cyanAccent/10 border border-cyanAccent/20 hover:bg-cyanAccent/20 text-cyanAccent text-[9px] font-bold rounded-lg cursor-pointer"
+                              className="flex items-center gap-1 px-3 py-1 bg-teal-50 border border-teal-100 hover:bg-teal-100 text-teal-700 text-[10px] font-bold rounded-xl cursor-pointer shadow-sm"
                             >
-                              <PhoneCall className="w-3 h-3" />
-                              Simulate Twilio call
+                              <PhoneCall className="w-3 h-3 text-teal-600" />
+                              Simulate Twilio Call
                             </button>
                           )}
                         </div>

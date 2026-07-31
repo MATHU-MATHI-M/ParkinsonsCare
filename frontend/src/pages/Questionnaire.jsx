@@ -86,14 +86,14 @@ const Questionnaire = () => {
             const Icon = q.icon;
             const score = answers[q.key];
             return (
-              <div key={q.key} className="glass-card p-6 rounded-2xl relative overflow-hidden">
+              <div key={q.key} className="bg-white border border-slate-200 p-6 rounded-2xl relative overflow-hidden shadow-sm">
                 <div className="flex items-start gap-4 mb-4">
-                  <div className="p-3 bg-cyanAccent/10 border border-cyanAccent/20 rounded-xl text-cyanAccent">
+                  <div className="p-3 bg-teal-50 border border-teal-200 rounded-xl text-teal-600">
                     <Icon className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="text-base font-semibold text-white">{q.label}</h3>
-                    <p className="text-gray-400 text-xs mt-0.5 leading-relaxed">{q.desc}</p>
+                    <h3 className="text-base font-bold text-slate-900 font-display">{q.label}</h3>
+                    <p className="text-slate-500 text-xs mt-0.5 leading-relaxed font-medium">{q.desc}</p>
                   </div>
                 </div>
 
@@ -105,9 +105,9 @@ const Questionnaire = () => {
                     max="5"
                     value={score}
                     onChange={(e) => handleSliderChange(q.key, e.target.value)}
-                    className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyanAccent"
+                    className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-teal-600"
                   />
-                  <div className="flex justify-between text-[10px] text-gray-500 font-bold uppercase tracking-wider">
+                  <div className="flex justify-between text-[10px] text-slate-500 font-bold uppercase tracking-wider">
                     <span>1 - None / Best</span>
                     <span>2 - Mild</span>
                     <span>3 - Moderate</span>
@@ -117,8 +117,8 @@ const Questionnaire = () => {
                 </div>
 
                 {/* Score badge */}
-                <div className="absolute top-6 right-6 flex items-center justify-center w-8 h-8 rounded-lg bg-slate-900/60 border border-white/5">
-                  <span className="text-xs font-bold text-cyanAccent">{score}</span>
+                <div className="absolute top-6 right-6 flex items-center justify-center w-8 h-8 rounded-xl bg-teal-50 border border-teal-200">
+                  <span className="text-xs font-black text-teal-700">{score}</span>
                 </div>
               </div>
             );
@@ -126,17 +126,17 @@ const Questionnaire = () => {
         </div>
 
         {/* Summary Card and Save */}
-        <div className="glass-card p-6 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6 border border-cyanAccent/15 shadow-xl">
+        <div className="bg-white border border-slate-200 p-6 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6 shadow-md">
           <div>
-            <h4 className="text-sm font-semibold text-gray-300">Estimated Non-Motor Score</h4>
-            <p className="text-xs text-gray-500 mt-0.5">Calculated dynamically based on symptom severity levels</p>
+            <h4 className="text-sm font-bold text-slate-800 font-display">Estimated Non-Motor Score</h4>
+            <p className="text-xs text-slate-500 mt-0.5 font-medium">Calculated dynamically based on symptom severity levels</p>
           </div>
           <div className="flex items-center gap-6">
-            <span className="text-4xl font-extrabold text-cyanAccent text-glow-cyan">{calculateNonMotorScore()}/100</span>
+            <span className="text-4xl font-extrabold text-teal-600 font-display">{calculateNonMotorScore()}/100</span>
             <button
               onClick={handleSave}
               disabled={saving}
-              className="flex items-center gap-2 px-5 py-3 bg-gradient-to-r from-cyanAccent to-blueAccent hover:from-cyanAccent hover:to-blueAccent/80 text-slate-900 font-bold text-sm rounded-xl shadow-lg glow-cyan transition-all cursor-pointer disabled:opacity-50"
+              className="flex items-center gap-2 px-6 py-3.5 bg-teal-600 hover:bg-teal-700 text-white font-bold text-sm rounded-xl shadow-md transition-all cursor-pointer disabled:opacity-50"
             >
               <Save className="w-4 h-4" />
               {saving ? 'Saving...' : 'Submit Assessment'}
