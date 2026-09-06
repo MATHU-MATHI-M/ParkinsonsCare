@@ -1,0 +1,746 @@
+{
+  "model_name": "PPMI Non-Motor Progression & Cognitive Risk Classifier",
+  "version": "3.0.0-PPMI-Trained",
+  "training_cohort_size": 14833,
+  "num_features": 35,
+  "metrics": {
+    "accuracy": 0.9965,
+    "accuracy_pct": "99.6%",
+    "cv_accuracy": 0.9977,
+    "roc_auc": 0.9999,
+    "cv_roc_auc": 0.9999,
+    "sensitivity": 1.0,
+    "sensitivity_pct": "100.0%",
+    "specificity": 0.9942,
+    "specificity_pct": "99.4%",
+    "precision": 0.9913,
+    "f1_score": 0.9956,
+    "confusion_matrix": {
+      "tp": 1484,
+      "tn": 2212,
+      "fp": 13,
+      "fn": 0
+    }
+  },
+  "features": [
+    {
+      "feature": "np1_cog",
+      "label": "UPDRS Cognitive Impairment",
+      "domain": "Cognition",
+      "importance": 0.3127,
+      "importance_pct": 31.3
+    },
+    {
+      "feature": "moca_total",
+      "label": "MoCA Total Score",
+      "domain": "Cognition",
+      "importance": 0.2611,
+      "importance_pct": 26.1
+    },
+    {
+      "feature": "ess_score",
+      "label": "Epworth Sleepiness Scale",
+      "domain": "Sleep",
+      "importance": 0.1645,
+      "importance_pct": 16.5
+    },
+    {
+      "feature": "sdmt_total",
+      "label": "Symbol Digit Modalities Test",
+      "domain": "Cognition",
+      "importance": 0.0266,
+      "importance_pct": 2.7
+    },
+    {
+      "feature": "gds_score",
+      "label": "GDS-15 Depression Scale",
+      "domain": "Mood",
+      "importance": 0.025,
+      "importance_pct": 2.5
+    },
+    {
+      "feature": "np1_slpd",
+      "label": "UPDRS Sleep Problems",
+      "domain": "Sleep",
+      "importance": 0.0213,
+      "importance_pct": 2.1
+    },
+    {
+      "feature": "semantic_fluency_animals",
+      "label": "Semantic Fluency (Animals)",
+      "domain": "Cognition",
+      "importance": 0.0149,
+      "importance_pct": 1.5
+    },
+    {
+      "feature": "scopa_gi",
+      "label": "SCOPA Gastrointestinal",
+      "domain": "Autonomic",
+      "importance": 0.0143,
+      "importance_pct": 1.4
+    },
+    {
+      "feature": "hvlt_total_recall",
+      "label": "HVLT Verbal Learning",
+      "domain": "Cognition",
+      "importance": 0.0139,
+      "importance_pct": 1.4
+    },
+    {
+      "feature": "tmt_b_sec",
+      "label": "Trail Making B (Executive Speed)",
+      "domain": "Cognition",
+      "importance": 0.0135,
+      "importance_pct": 1.4
+    },
+    {
+      "feature": "np1_apat",
+      "label": "UPDRS Apathy",
+      "domain": "Mood",
+      "importance": 0.0115,
+      "importance_pct": 1.2
+    },
+    {
+      "feature": "hvlt_delayed_recall",
+      "label": "HVLT Delayed Recall",
+      "domain": "Cognition",
+      "importance": 0.011,
+      "importance_pct": 1.1
+    },
+    {
+      "feature": "np1_anxs",
+      "label": "UPDRS Anxious Mood",
+      "domain": "Mood",
+      "importance": 0.0106,
+      "importance_pct": 1.1
+    },
+    {
+      "feature": "np1_fatg",
+      "label": "UPDRS Fatigue",
+      "domain": "Fatigue",
+      "importance": 0.0092,
+      "importance_pct": 0.9
+    },
+    {
+      "feature": "lexical_fluency_total",
+      "label": "Phonemic Lexical Fluency",
+      "domain": "Cognition",
+      "importance": 0.0088,
+      "importance_pct": 0.9
+    },
+    {
+      "feature": "np1_cnst",
+      "label": "UPDRS Constipation",
+      "domain": "Autonomic",
+      "importance": 0.0077,
+      "importance_pct": 0.8
+    },
+    {
+      "feature": "np1_dprs",
+      "label": "UPDRS Depressed Mood",
+      "domain": "Mood",
+      "importance": 0.0076,
+      "importance_pct": 0.8
+    },
+    {
+      "feature": "age",
+      "label": "Patient Age",
+      "domain": "Demographics",
+      "importance": 0.0074,
+      "importance_pct": 0.7
+    },
+    {
+      "feature": "rbdsq_score",
+      "label": "RBD Sleep Behavior Disorder",
+      "domain": "Sleep",
+      "importance": 0.006,
+      "importance_pct": 0.6
+    },
+    {
+      "feature": "scopa_thermo",
+      "label": "SCOPA Thermoregulatory",
+      "domain": "Autonomic",
+      "importance": 0.0059,
+      "importance_pct": 0.6
+    },
+    {
+      "feature": "scopa_total",
+      "label": "SCOPA-AUT Total Autonomic",
+      "domain": "Autonomic",
+      "importance": 0.0057,
+      "importance_pct": 0.6
+    },
+    {
+      "feature": "np1_lthd",
+      "label": "UPDRS Lightheadedness",
+      "domain": "Autonomic",
+      "importance": 0.0053,
+      "importance_pct": 0.5
+    },
+    {
+      "feature": "clock_total",
+      "label": "Clock Drawing Test",
+      "domain": "Cognition",
+      "importance": 0.0052,
+      "importance_pct": 0.5
+    },
+    {
+      "feature": "scopa_urinary",
+      "label": "SCOPA Urinary",
+      "domain": "Autonomic",
+      "importance": 0.0042,
+      "importance_pct": 0.4
+    },
+    {
+      "feature": "scopa_cardio",
+      "label": "SCOPA Cardiovascular",
+      "domain": "Autonomic",
+      "importance": 0.0037,
+      "importance_pct": 0.4
+    },
+    {
+      "feature": "np1_hall",
+      "label": "UPDRS Hallucinations/Psychosis",
+      "domain": "Psychosis",
+      "importance": 0.0036,
+      "importance_pct": 0.4
+    },
+    {
+      "feature": "bnt_score",
+      "label": "Boston Naming Score",
+      "domain": "Cognition",
+      "importance": 0.0032,
+      "importance_pct": 0.3
+    },
+    {
+      "feature": "stai_state",
+      "label": "STAI State Anxiety",
+      "domain": "Mood",
+      "importance": 0.0031,
+      "importance_pct": 0.3
+    },
+    {
+      "feature": "orthostatic_drop_sys",
+      "label": "Orthostatic Systolic BP Drop",
+      "domain": "Autonomic",
+      "importance": 0.003,
+      "importance_pct": 0.3
+    },
+    {
+      "feature": "stai_trait",
+      "label": "STAI Trait Anxiety",
+      "domain": "Mood",
+      "importance": 0.0028,
+      "importance_pct": 0.3
+    },
+    {
+      "feature": "np1_urin",
+      "label": "UPDRS Urinary Problems",
+      "domain": "Autonomic",
+      "importance": 0.0022,
+      "importance_pct": 0.2
+    },
+    {
+      "feature": "np1_pain",
+      "label": "UPDRS Pain Sensations",
+      "domain": "Sensory",
+      "importance": 0.002,
+      "importance_pct": 0.2
+    },
+    {
+      "feature": "upsit_total",
+      "label": "UPSIT Smell Identification",
+      "domain": "Sensory",
+      "importance": 0.0012,
+      "importance_pct": 0.1
+    },
+    {
+      "feature": "sex",
+      "label": "Biological Sex",
+      "domain": "Demographics",
+      "importance": 0.0006,
+      "importance_pct": 0.1
+    },
+    {
+      "feature": "np1_dds",
+      "label": "UPDRS Dopamine Dysregulation",
+      "domain": "Behavior",
+      "importance": 0.0004,
+      "importance_pct": 0.0
+    }
+  ],
+  "coefficients": {
+    "age": -0.031,
+    "sex": -0.037,
+    "moca_total": -3.5409,
+    "ess_score": 2.1849,
+    "gds_score": 0.4972,
+    "rbdsq_score": -0.0565,
+    "stai_state": 0.0825,
+    "stai_trait": 0.0601,
+    "scopa_total": -0.1773,
+    "scopa_gi": 0.1065,
+    "scopa_urinary": -0.0424,
+    "scopa_cardio": 0.055,
+    "scopa_thermo": 0.2012,
+    "orthostatic_drop_sys": 0.0664,
+    "sdmt_total": 0.2203,
+    "hvlt_total_recall": 0.173,
+    "hvlt_delayed_recall": -0.1902,
+    "tmt_b_sec": 0.1343,
+    "lexical_fluency_total": 0.1046,
+    "semantic_fluency_animals": -0.0143,
+    "bnt_score": -0.0809,
+    "clock_total": -0.1442,
+    "upsit_total": 0.1011,
+    "np1_cog": 6.2536,
+    "np1_hall": -0.0256,
+    "np1_dprs": -0.1899,
+    "np1_anxs": -0.1119,
+    "np1_apat": -0.0027,
+    "np1_dds": 0.0077,
+    "np1_slpd": -0.0158,
+    "np1_fatg": -0.066,
+    "np1_pain": 0.0568,
+    "np1_urin": 0.0625,
+    "np1_cnst": -0.1069,
+    "np1_lthd": 0.005
+  },
+  "intercept": 1.4859,
+  "feature_means": {
+    "age": 61.7735,
+    "sex": 0.6141,
+    "moca_total": 26.8107,
+    "ess_score": 6.3896,
+    "gds_score": 5.4472,
+    "rbdsq_score": 3.3396,
+    "stai_state": 47.3329,
+    "stai_trait": 45.7104,
+    "scopa_total": 20.4021,
+    "scopa_gi": 2.709,
+    "scopa_urinary": 4.8194,
+    "scopa_cardio": 0.4756,
+    "scopa_thermo": 1.8383,
+    "orthostatic_drop_sys": 4.0508,
+    "sdmt_total": 41.6459,
+    "hvlt_total_recall": 46.1195,
+    "hvlt_delayed_recall": 46.5128,
+    "tmt_b_sec": 82.625,
+    "lexical_fluency_total": 43.176,
+    "semantic_fluency_animals": 21.0083,
+    "bnt_score": 57.2622,
+    "clock_total": 6.6651,
+    "upsit_total": 25.0547,
+    "np1_cog": 0.251,
+    "np1_hall": 0.0662,
+    "np1_dprs": 0.2443,
+    "np1_anxs": 0.2894,
+    "np1_apat": 0.1917,
+    "np1_dds": 0.041,
+    "np1_slpd": 0.9848,
+    "np1_fatg": 0.8826,
+    "np1_pain": 0.9202,
+    "np1_urin": 0.856,
+    "np1_cnst": 0.3579,
+    "np1_lthd": 0.2584
+  },
+  "feature_scales": {
+    "age": 9.9323,
+    "sex": 0.4868,
+    "moca_total": 2.5925,
+    "ess_score": 3.7562,
+    "gds_score": 1.3918,
+    "rbdsq_score": 2.7064,
+    "stai_state": 4.3747,
+    "stai_trait": 3.6832,
+    "scopa_total": 12.2532,
+    "scopa_gi": 2.4444,
+    "scopa_urinary": 3.691,
+    "scopa_cardio": 0.9774,
+    "scopa_thermo": 2.0673,
+    "orthostatic_drop_sys": 12.8927,
+    "sdmt_total": 10.2095,
+    "hvlt_total_recall": 9.8634,
+    "hvlt_delayed_recall": 10.5185,
+    "tmt_b_sec": 29.5584,
+    "lexical_fluency_total": 8.6837,
+    "semantic_fluency_animals": 4.8429,
+    "bnt_score": 4.0145,
+    "clock_total": 0.9905,
+    "upsit_total": 3.9172,
+    "np1_cog": 0.5659,
+    "np1_hall": 0.3022,
+    "np1_dprs": 0.5842,
+    "np1_anxs": 0.6186,
+    "np1_apat": 0.5391,
+    "np1_dds": 0.2459,
+    "np1_slpd": 0.7056,
+    "np1_fatg": 0.7213,
+    "np1_pain": 0.7603,
+    "np1_urin": 0.7338,
+    "np1_cnst": 0.6861,
+    "np1_lthd": 0.5995
+  },
+  "feature_medians": {
+    "age": 62.8,
+    "sex": 1.0,
+    "moca_total": 27.0,
+    "ess_score": 6.0,
+    "gds_score": 5.0,
+    "rbdsq_score": 3.0,
+    "stai_state": 48.0,
+    "stai_trait": 46.0,
+    "scopa_total": 19.0,
+    "scopa_gi": 2.0,
+    "scopa_urinary": 4.0,
+    "scopa_cardio": 0.0,
+    "scopa_thermo": 1.0,
+    "orthostatic_drop_sys": 3.0,
+    "sdmt_total": 42.0,
+    "hvlt_total_recall": 46.0,
+    "hvlt_delayed_recall": 48.0,
+    "tmt_b_sec": 78.0,
+    "lexical_fluency_total": 43.0,
+    "semantic_fluency_animals": 21.0,
+    "bnt_score": 58.0,
+    "clock_total": 7.0,
+    "upsit_total": 25.0,
+    "np1_cog": 0.0,
+    "np1_hall": 0.0,
+    "np1_dprs": 0.0,
+    "np1_anxs": 0.0,
+    "np1_apat": 0.0,
+    "np1_dds": 0.0,
+    "np1_slpd": 1.0,
+    "np1_fatg": 1.0,
+    "np1_pain": 1.0,
+    "np1_urin": 1.0,
+    "np1_cnst": 0.0,
+    "np1_lthd": 0.0
+  },
+  "domain_weights": {
+    "Cognition": 0.35,
+    "Sleep": 0.2,
+    "Mood": 0.2,
+    "Autonomic": 0.15,
+    "Sensory": 0.05,
+    "Fatigue": 0.05
+  },
+  "metadata": {
+    "moca_total": {
+      "label": "MoCA Total Score",
+      "domain": "Cognition",
+      "norm": [
+        26,
+        30
+      ],
+      "higher_is": "better"
+    },
+    "np1_cog": {
+      "label": "UPDRS Cognitive Impairment",
+      "domain": "Cognition",
+      "norm": [
+        0,
+        0
+      ],
+      "higher_is": "worse"
+    },
+    "sdmt_total": {
+      "label": "Symbol Digit Modalities Test",
+      "domain": "Cognition",
+      "norm": [
+        40,
+        70
+      ],
+      "higher_is": "better"
+    },
+    "hvlt_total_recall": {
+      "label": "HVLT Verbal Learning",
+      "domain": "Cognition",
+      "norm": [
+        45,
+        60
+      ],
+      "higher_is": "better"
+    },
+    "hvlt_delayed_recall": {
+      "label": "HVLT Delayed Recall",
+      "domain": "Cognition",
+      "norm": [
+        45,
+        60
+      ],
+      "higher_is": "better"
+    },
+    "tmt_b_sec": {
+      "label": "Trail Making B (Executive Speed)",
+      "domain": "Cognition",
+      "norm": [
+        40,
+        80
+      ],
+      "higher_is": "worse"
+    },
+    "lexical_fluency_total": {
+      "label": "Phonemic Lexical Fluency",
+      "domain": "Cognition",
+      "norm": [
+        35,
+        60
+      ],
+      "higher_is": "better"
+    },
+    "semantic_fluency_animals": {
+      "label": "Semantic Fluency (Animals)",
+      "domain": "Cognition",
+      "norm": [
+        18,
+        30
+      ],
+      "higher_is": "better"
+    },
+    "clock_total": {
+      "label": "Clock Drawing Test",
+      "domain": "Cognition",
+      "norm": [
+        6,
+        7
+      ],
+      "higher_is": "better"
+    },
+    "bnt_score": {
+      "label": "Boston Naming Score",
+      "domain": "Cognition",
+      "norm": [
+        28,
+        30
+      ],
+      "higher_is": "better"
+    },
+    "ess_score": {
+      "label": "Epworth Sleepiness Scale",
+      "domain": "Sleep",
+      "norm": [
+        0,
+        10
+      ],
+      "higher_is": "worse"
+    },
+    "rbdsq_score": {
+      "label": "RBD Sleep Behavior Disorder",
+      "domain": "Sleep",
+      "norm": [
+        0,
+        4
+      ],
+      "higher_is": "worse"
+    },
+    "np1_slpd": {
+      "label": "UPDRS Sleep Problems",
+      "domain": "Sleep",
+      "norm": [
+        0,
+        1
+      ],
+      "higher_is": "worse"
+    },
+    "gds_score": {
+      "label": "GDS-15 Depression Scale",
+      "domain": "Mood",
+      "norm": [
+        0,
+        4
+      ],
+      "higher_is": "worse"
+    },
+    "stai_state": {
+      "label": "STAI State Anxiety",
+      "domain": "Mood",
+      "norm": [
+        20,
+        40
+      ],
+      "higher_is": "worse"
+    },
+    "stai_trait": {
+      "label": "STAI Trait Anxiety",
+      "domain": "Mood",
+      "norm": [
+        20,
+        40
+      ],
+      "higher_is": "worse"
+    },
+    "np1_dprs": {
+      "label": "UPDRS Depressed Mood",
+      "domain": "Mood",
+      "norm": [
+        0,
+        0
+      ],
+      "higher_is": "worse"
+    },
+    "np1_anxs": {
+      "label": "UPDRS Anxious Mood",
+      "domain": "Mood",
+      "norm": [
+        0,
+        0
+      ],
+      "higher_is": "worse"
+    },
+    "np1_apat": {
+      "label": "UPDRS Apathy",
+      "domain": "Mood",
+      "norm": [
+        0,
+        0
+      ],
+      "higher_is": "worse"
+    },
+    "scopa_total": {
+      "label": "SCOPA-AUT Total Autonomic",
+      "domain": "Autonomic",
+      "norm": [
+        0,
+        15
+      ],
+      "higher_is": "worse"
+    },
+    "scopa_gi": {
+      "label": "SCOPA Gastrointestinal",
+      "domain": "Autonomic",
+      "norm": [
+        0,
+        5
+      ],
+      "higher_is": "worse"
+    },
+    "scopa_urinary": {
+      "label": "SCOPA Urinary",
+      "domain": "Autonomic",
+      "norm": [
+        0,
+        5
+      ],
+      "higher_is": "worse"
+    },
+    "scopa_cardio": {
+      "label": "SCOPA Cardiovascular",
+      "domain": "Autonomic",
+      "norm": [
+        0,
+        2
+      ],
+      "higher_is": "worse"
+    },
+    "scopa_thermo": {
+      "label": "SCOPA Thermoregulatory",
+      "domain": "Autonomic",
+      "norm": [
+        0,
+        3
+      ],
+      "higher_is": "worse"
+    },
+    "orthostatic_drop_sys": {
+      "label": "Orthostatic Systolic BP Drop",
+      "domain": "Autonomic",
+      "norm": [
+        -10,
+        15
+      ],
+      "higher_is": "worse"
+    },
+    "np1_urin": {
+      "label": "UPDRS Urinary Problems",
+      "domain": "Autonomic",
+      "norm": [
+        0,
+        1
+      ],
+      "higher_is": "worse"
+    },
+    "np1_cnst": {
+      "label": "UPDRS Constipation",
+      "domain": "Autonomic",
+      "norm": [
+        0,
+        1
+      ],
+      "higher_is": "worse"
+    },
+    "np1_lthd": {
+      "label": "UPDRS Lightheadedness",
+      "domain": "Autonomic",
+      "norm": [
+        0,
+        1
+      ],
+      "higher_is": "worse"
+    },
+    "upsit_total": {
+      "label": "UPSIT Smell Identification",
+      "domain": "Sensory",
+      "norm": [
+        34,
+        40
+      ],
+      "higher_is": "better"
+    },
+    "np1_pain": {
+      "label": "UPDRS Pain Sensations",
+      "domain": "Sensory",
+      "norm": [
+        0,
+        1
+      ],
+      "higher_is": "worse"
+    },
+    "np1_fatg": {
+      "label": "UPDRS Fatigue",
+      "domain": "Fatigue",
+      "norm": [
+        0,
+        1
+      ],
+      "higher_is": "worse"
+    },
+    "np1_hall": {
+      "label": "UPDRS Hallucinations/Psychosis",
+      "domain": "Psychosis",
+      "norm": [
+        0,
+        0
+      ],
+      "higher_is": "worse"
+    },
+    "np1_dds": {
+      "label": "UPDRS Dopamine Dysregulation",
+      "domain": "Behavior",
+      "norm": [
+        0,
+        0
+      ],
+      "higher_is": "worse"
+    },
+    "age": {
+      "label": "Patient Age",
+      "domain": "Demographics",
+      "norm": [
+        50,
+        75
+      ],
+      "higher_is": "neutral"
+    },
+    "sex": {
+      "label": "Biological Sex",
+      "domain": "Demographics",
+      "norm": [
+        1,
+        2
+      ],
+      "higher_is": "neutral"
+    }
+  }
+}

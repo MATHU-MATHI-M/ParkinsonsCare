@@ -1,0 +1,22 @@
+{
+  "expo": {
+    "name": "NeuroCare Non-Motor Platform",
+    "slug": "neurocare",
+    "version": "1.0.0",
+    "sdkVersion": "57.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#FFFFFF"
+      },
+      "package": "com.parkinson.care"
+    }
+  }
+}
