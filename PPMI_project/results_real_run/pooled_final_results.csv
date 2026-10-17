@@ -1,0 +1,5 @@
+model,AUROC,AUROC_95CI_repeat0,AUPRC,Brier,calib_intercept,calib_slope,gain_vs_reference
+"Reference LR (age, sex, H&Y, NP3TOT)",0.665 +/- 0.007,0.612-0.701,0.155,0.073,-0.29,0.83,-
+Logistic regression (all),0.746 +/- 0.009,0.696-0.770,0.193,0.071,-0.25,0.84,+0.082 (+0.040 to +0.115)
+Random forest (all),0.767 +/- 0.009,0.733-0.804,0.242,0.069,0.03,0.94,+0.102 (+0.072 to +0.153)
+Gradient boosting (all),0.753 +/- 0.011,0.701-0.780,0.206,0.071,-0.29,0.83,+0.088 (+0.046 to +0.122)

@@ -1,0 +1,4 @@
+PATNO,target_year,age_at_visit,NHY,NP3TOT,NP3_PIGD,MoCA_total,predicted_chance_stage3_next_year,actually_stage3
+3227,5,54.7,1.0,14.0,0.0,28.0,0.0%,0
+3911,5,56.1,1.0,31.0,1.0,29.0,4.7%,0
+3325,13,78.6,2.0,51.0,4.0,27.0,47.1%,1

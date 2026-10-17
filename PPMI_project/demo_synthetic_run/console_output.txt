@@ -1,0 +1,24 @@
+DATA: 1902 patient-year rows | 511 patients | 152 new stage>=3 events
+
+=== PATIENTS / ROWS / EVENTS IN EACH SET (random forest, repeat 0) ===
+ fold  train_patients  train_rows  train_events  val_patients  val_rows  val_events  test_patients  test_rows  test_events
+    0             328        1206           100            83       316          22            100        380           30
+    1             326        1223            97            82       296          23            103        383           32
+    2             327        1223            97            82       300          25            102        379           30
+    3             325        1209           104            82       312          18            104        381           30
+    4             327        1233            94            82       290          28            102        379           30
+Average per fold: {'train_patients': 327.0, 'val_patients': 82.0, 'test_patients': 102.0, 'train_rows': 1214.0, 'val_rows': 307.0, 'test_rows': 380.0, 'train_events': 97.0, 'val_events': 25.0, 'test_events': 30.0}
+
+=== TEST RESULTS (all test folds pooled; mean of 3 repeats; probabilities calibrated) ===
+                               model           AUROC AUROC_95CI_repeat0  AUPRC Brier  calib_intercept  calib_slope         gain_vs_reference
+Reference LR (age, sex, H&Y, NP3TOT) 0.749 +/- 0.005        0.704-0.782  0.221 0.069            -0.28         0.84                         -
+           Logistic regression (all) 0.753 +/- 0.007        0.703-0.792  0.266 0.067            -0.32         0.81 +0.003 (-0.021 to +0.028)
+                 Random forest (all) 0.737 +/- 0.008        0.690-0.775  0.220 0.069            -0.28         0.84 -0.012 (-0.037 to +0.012)
+             Gradient boosting (all) 0.738 +/- 0.008        0.689-0.780  0.208 0.070            -0.32         0.82 -0.012 (-0.038 to +0.020)
+
+=== EXAMPLE predictions (out-of-fold, calibrated); final model hyper-parameters {'leaf': 20} ===
+ PATNO  target_year  age_at_visit  NHY  NP3TOT  NP3_PIGD  MoCA_total predicted_chance_stage3_next_year  actually_stage3
+  3307            6          59.6    2    27.0       1.0        27.0                              0.0%                0
+  3056            8          84.7    2    31.0       2.0        28.0                              5.2%                0
+  3368           12          74.4    2    60.0       5.0        25.0                             48.0%                0
+Saved: final_model_random_forest.joblib, pooled_*.csv, pooled_calibration_plot.png
